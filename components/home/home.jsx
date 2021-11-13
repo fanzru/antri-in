@@ -7,7 +7,7 @@ function Home(props) {
       <Navbar/>
       <div className="container mx-auto mt-12 px-7 md:flex md:justify-between  border border-black">
 
-        <div className="flex mt-4 my-10 py-48 px-10 md:px-40 items-center justify-center bg-gray-100 rounded ">
+        <div className="flex mt-4 my-10 py-48 md:px-40 items-center justify-center bg-gray-100 rounded ">
           <div className="font-reguler text-gray-400 text-sm">Antrianmu Kosong</div>
         </div>
 
@@ -23,6 +23,17 @@ function Home(props) {
         </div>
 
       </div>
+      <div className="container mx-auto mt-10 mb-4 border border-black content-center">
+        <div className="flex items-center justify-center ">
+          <button className="text-red-400 font-bold hover:text-red-600 "> Login Admin</button>
+        </div>
+
+
+          <p className="flex items-center justify-center font-light text-sm">
+            Support by Antri.in and Yaudahlah Team
+          </p>
+      </div>
+
     </div>
   );
 }
