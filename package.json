@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.5",
     "@react-hook/window-size": "^3.0.7",
     "@reduxjs/toolkit": "^1.6.2",
     "framer-motion": "^5.2.1",
