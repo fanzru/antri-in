@@ -26,7 +26,7 @@ function Navbar() {
   const menus = ['Home', 'About Us', 'Join Us']
   return (
     <>
-      <nav className="bg-red-50 fixed">
+      <nav className="bg-red-100 fixed">
         <div className="w-screen px-7 mx-auto">
           <div className="flex justify-between ">
             <div className="flex">
