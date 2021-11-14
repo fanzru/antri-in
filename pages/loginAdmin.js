@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/header/navbar'
 
-function JoinAntrian(props) {
+function LoginAdmin(props) {
   return (
     <div>
       <Navbar/>
@@ -9,4 +9,4 @@ function JoinAntrian(props) {
   );
 }
 
-export default JoinAntrian;
+export default LoginAdmin;

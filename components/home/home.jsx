@@ -36,7 +36,7 @@ function Home(props) {
 
         <div className="container mx-auto mt-10 mb-4 border border-black content-center">
           <div className="flex items-center justify-center ">
-            <a href="/pages/joinAntrian.js">
+            <a href="/loginAdmin">
               <button className="text-red-400 font-bold hover:text-red-600 "> Login Admin</button>
             </a>
         </div>
