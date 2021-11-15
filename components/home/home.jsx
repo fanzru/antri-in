@@ -1,55 +1,90 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../header/navbar";
 import Backgound from "../background/backgound";
+import {BsFillPeopleFill} from "react-icons/bs";
 
 function Home(props) {
+  const listAntrian = [
+    {
+      nama: "Antrian Sembako",
+      jumlah: "10"
+    },
+    {
+      nama: "Antrian Vaksin",
+      jumlah: "100"
+    },
+    {
+      nama: "Antrian Posyandu",
+      jumlah: "5"
+    },
+    {
+      nama: "Antrian Pengurusan KTP",
+      jumlah: "2"
+    },
+  ]
+
   return (
     <div className="">
       <Backgound/>
       <div className={"z-50"}>
         <Navbar/>
-        <div>
-          <img src="/public/Ellipse1.svg" alt=""/>
-        </div>
-        <div className="container mx-auto mt-12 px-7 md:flex md:justify-between  border border-black">
+        <div className="container mx-auto mt-12 px-7 md:flex md:justify-between  ">
 
-          <div className="flex mt-4 my-10 py-48 md:px-40 items-center justify-center bg-gray-100 rounded ">
-            <div className="font-reguler text-gray-400 text-sm">Antrianmu Kosong</div>
+          <div className="flex flex-col mb-10">
+            <img src="antriin-ilus.svg" alt="Ilustrator Antriin"/>
+            <div className="flex flex-col">
+              <heading1 className="mt-3 flex justify-center font-semibold text-2xl text-red-400"> Antri.in </heading1>
+              <p className="text-sm text-center mt-2 font-light">
+                Antriin merupakan sebuah webapps untuk menbuat dan mengikuti antrian jadi lebih mudah dan menyenangkan
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col border border-black">
-
+          <div className="flex flex-col md:w-full md:mx-40">
+            <div className="flex justify-center font-extrabold text-red-400 text-xl uppercase"> Silahkan Memilih</div>
             <div className="w-full mt-4">
-              {/*<HiSearch className={"absolute text-red-500 mt-3.5 w-full flex justify-end"} />*/}
               <input
-                className="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded-full py-3 px-4 leading-tight focus:bg-white "
+                className="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded-full   py-3 px-4 leading-tight focus:outline-none focus:ring-red-300 focus:ring focus:bg-white "
                 id="search" type="text" placeholder="Cari Antrian"/>
             </div>
 
-            <div className=" flex my-5 py-48 bg-white border border-red-700 rounded shadow-md">
-              List Antrian
+            <div className="flex flex-col py-5">
+
+              {listAntrian.map((antrian, index) => {
+                return (
+                  <button
+                    className="flex items-center justify-between w-full py-4 px-3 mb-2 rounded-md bg-red-300 hover:bg-red-400">
+                    <div className="font-reguler text-sm">{antrian.nama}</div>
+                    <div className="flex justify-between items-center">
+                      <div className="mx-3 font-bold items-center text-sm"> {antrian.jumlah} </div>
+                      <BsFillPeopleFill/>
+                    </div>
+                  </button>
+                )
+              })}
+
             </div>
 
           </div>
 
         </div>
 
-        <div className="container mx-auto mt-10 mb-4 border border-black content-center">
+        <div className="container mx-auto mt-10 mb-4 content-center">
           <div className="flex items-center justify-center ">
             <a href="/loginAdmin">
               <button className="text-red-400 font-bold hover:text-red-600 "> Login Admin</button>
             </a>
+          </div>
+
+          <p className="flex items-center justify-center font-light text-sm">
+            Support by Antri.in and Yaudahlah Team
+          </p>
         </div>
-
-        <p className="flex items-center justify-center font-light text-sm">
-          Support by Antri.in and Yaudahlah Team
-        </p>
       </div>
-    </div>
 
-</div>
-)
-  ;
+    </div>
+  )
+    ;
 }
 
 export default Home;
