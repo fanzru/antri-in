@@ -9,7 +9,7 @@ function loginAdmin() {
       <div className={"z-50"}>
         <Navbar/>
         <div className='md:grid md:grid-cols-2 gap-4 place-items-center py-20 px-5'>
-          <div className='bg-white hidden md:block'>
+          <div className='hidden md:block'>
             <img className='' src='antriin-ilus.svg'></img>
           </div>
           <div className='p-8'>
