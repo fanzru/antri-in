@@ -17,7 +17,7 @@ function loginAdmin() {
             <form className='py-3'>
               <div className="mt-1 flex rounded-md shadow-sm">
                   <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    logo
+                    logo1
                   </span>
                   <input type="text"  className="focus:ring-indigo-500 focus:border-indigo-500 placeholder-black flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 bg-red-300" placeholder="youremail@gmail.com"></input>
               </div>
