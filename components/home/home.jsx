@@ -71,7 +71,7 @@ function Home(props) {
 
         <div className="container mx-auto mt-10 mb-4 content-center">
           <div className="flex items-center justify-center ">
-            <a href="/loginAdmin">
+            <a href="/login-admin">
               <button className="text-red-400 font-bold hover:text-red-600 "> Login Admin</button>
             </a>
           </div>
