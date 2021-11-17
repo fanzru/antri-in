@@ -27,7 +27,7 @@ function LoginAdmin() {
                   <HiArrowNarrowRight/>
                 </div>
                 </button>
-                <a href="/create-account"><button className='bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold'>Daftar</button></a>
+                <a href="/create-account" className='bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center pt-1.5'>Daftar</a>
               </div>
             </form>
           </div>
