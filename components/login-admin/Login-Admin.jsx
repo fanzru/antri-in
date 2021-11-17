@@ -26,9 +26,8 @@ function LoginAdmin() {
                 <div className='px-2 pt-1'>
                   <HiArrowNarrowRight/>
                 </div>
-                </button>  
-                <button className='bg-red-50 rounded-lg w-28 border-2 border-red-300 text-red-600 font-semibold'><a href="/create-account">Daftar</a>
                 </button>
+                <a href="/create-account"><button className='bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold'>Daftar</button></a>
               </div>
             </form>
           </div>
