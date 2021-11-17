@@ -42,7 +42,7 @@ function Home(props) {
           </div>
 
           <div className="flex flex-col md:w-full md:mx-40">
-            <div className="flex justify-center font-extrabold text-red-400 text-xl uppercase"> Silahkan Memilih</div>
+            <div className="flex justify-center font-extrabold text-black text-xl uppercase"> Silahkan Memilih</div>
             {/*<div className=" mt-4">
               <input
                 className="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded-full   py-3 px-4 leading-tight focus:outline-none focus:ring-red-300 focus:ring focus:bg-white "
