@@ -2,7 +2,7 @@ import React from 'react';
 
 function JoinAntrian(props) {
   return (
-    <div className="mx-auto bg-gray-100 h-screen">
+    <div className="mx-auto h-screen">
       <div className="container mx-auto m w-full max-w-xs py-32">
         <div className="text-center font-bold mb-4 text-3xl">Isi Biodata Antrian</div>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
