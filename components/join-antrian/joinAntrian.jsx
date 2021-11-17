@@ -1,12 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DescriptionAntrian from "./descriptionAntrian"
+import axios from "axios"
+//import env from "react-dotenv";
 
 function JoinAntrian(props) {
+
   const antrian = ({
     nama: "sembako",
     description: "Antrian ini ditujukan untuk warga desa sidodadi,Antrian ini ditujukan untuk warga desa sidodadi",
     jumlah_antrian: 100
   })
+
+  const [nama, setNama] = useState("")
+  const [nomorHp, setNomorHP] = useState("")
+
+  const onSubmit = (event) => {
+    event.preventDefault()
+    const data = ({
+      "nama": nama,
+      "nomor_hp": nomorHp
+    })
+    axios
+      .post(`${env.HOSTNAME}/api/`,data)
+      .then(()=> {
+        console.log("Success")
+      })
+      .catch((e) => {
+          console.log("error")
+      })
+  }
+
 
   return (
     <div className="mx-auto h-screen ">
@@ -14,7 +37,7 @@ function JoinAntrian(props) {
         <div className="flex flex-col w-full py-auto px-8">
           <div className="shadow-md rounded-md bg-white py-2 px-4">
             <div className="flex justify-center font-bold text-red-400 text-2xl mt-4">Informasi Antrian</div>
-            <DescriptionAntrian data = {antrian}/>
+            <DescriptionAntrian data={antrian}/>
           </div>
         </div>
         <div className="flex mx-auto flex-col w-full mt-4">
@@ -26,7 +49,8 @@ function JoinAntrian(props) {
               </label>
               <input
                 className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text" placeholder="Masukan Nama Lengkap" id="nama"/>
+                type="text" placeholder="Masukan Nama Lengkap" id="nama"
+                value={nama} onChange={(e)=> setNama(e.target.value)}/>
             </div>
             <div className="mb-6">
               <label htmlFor="nohp" className="block text-black text-sm font-bold mb-4">
@@ -34,10 +58,13 @@ function JoinAntrian(props) {
               </label>
               <input
                 className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text" id="nohp" placeholder="081326161035"/>
+                type="text" id="nohp" placeholder="081326161035"
+                value={nomorHp} onChange={(e)=> setNomorHP(e.target.value)}/>
             </div>
             <div className="flex items-center justify-between">
               <button
+
+                type="submit" onClick = {onSubmit}
                 className=" items-center bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
                 Join Antrian
               </button>
