@@ -1,10 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Navbar from "../header/navbar";
 import Backgound from "../background/backgound";
 import {BsFillPeopleFill} from "react-icons/bs";
 import {MdOutlineSearch} from "react-icons/md"
+import axios from "axios"
 
 function Home(props) {
+  const [dataAntrian, setAntrian] = useState([])
+
+  const getAntrian = () => {
+    console.log('----',process.env.NEXT_PUBLIC_HOSTNAME)
+
+     axios
+      .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/antrian`)
+      .then((res)=>{
+        const data = res.data.data
+        setAntrian(data)
+      })
+      .catch((e)=> {
+        console.log(e)
+      })
+  }
+  useEffect(() => {
+    getAntrian()
+  }, []);
+
   const listAntrian = [
     {
       nama: "Antrian Sembako",
@@ -58,14 +78,13 @@ function Home(props) {
 
 
             <div className="flex flex-col py-5">
-
-              {listAntrian.map((antrian, index) => {
+              {dataAntrian.map((antrian, index) => {
                 return (
                   <button
                     className="flex items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
                     <div className="font-reguler text-sm">{antrian.nama}</div>
                     <div className="flex justify-between items-center">
-                      <div className="mx-3 font-bold items-center text-sm"> {antrian.jumlah} </div>
+                      <div className="mx-3 font-bold items-center text-sm"> {antrian.max_antrian} </div>
                       <BsFillPeopleFill/>
                     </div>
                   </button>

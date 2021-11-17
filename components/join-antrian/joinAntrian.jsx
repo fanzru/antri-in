@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import DescriptionAntrian from "./descriptionAntrian"
 import axios from "axios"
-//import env from "react-dotenv";
 
 function JoinAntrian(props) {
 
@@ -16,12 +15,13 @@ function JoinAntrian(props) {
 
   const onSubmit = (event) => {
     event.preventDefault()
+
     const data = ({
       "nama": nama,
       "nomor_hp": nomorHp
     })
     axios
-      .post(`${env.HOSTNAME}/api/`,data)
+      .post(`${process.env.HOSTNAME}/api/`,data)
       .then(()=> {
         console.log("Success")
       })
@@ -29,7 +29,6 @@ function JoinAntrian(props) {
           console.log("error")
       })
   }
-
 
   return (
     <div className="mx-auto h-screen ">
@@ -64,7 +63,7 @@ function JoinAntrian(props) {
             <div className="flex items-center justify-between">
               <button
 
-                type="submit" onClick = {onSubmit}
+
                 className=" items-center bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
                 Join Antrian
               </button>
