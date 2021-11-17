@@ -9,10 +9,8 @@ function Home(props) {
   const [dataAntrian, setAntrian] = useState([])
 
   const getAntrian = () => {
-    console.log('----',process.env.NEXT_PUBLIC_HOSTNAME)
-
      axios
-      .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/antrian`)
+      .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/antrian`)
       .then((res)=>{
         const data = res.data.data
         setAntrian(data)
@@ -21,28 +19,10 @@ function Home(props) {
         console.log(e)
       })
   }
+
   useEffect(() => {
     getAntrian()
   }, []);
-
-  const listAntrian = [
-    {
-      nama: "Antrian Sembako",
-      jumlah: "10"
-    },
-    {
-      nama: "Antrian Vaksin",
-      jumlah: "100"
-    },
-    {
-      nama: "Antrian Posyandu",
-      jumlah: "5"
-    },
-    {
-      nama: "Antrian Pengurusan KTP",
-      jumlah: "2"
-    },
-  ]
 
   return (
     <div className="">
