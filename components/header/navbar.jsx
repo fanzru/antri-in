@@ -5,15 +5,15 @@ import { useWindowWidth } from '@react-hook/window-size/throttled'
 
 function Navbar() {
 
-  var [activeBar, setActiveBar] = useState(false)
-  var width = useWindowWidth()
+  const [activeBar, setActiveBar] = useState(false)
+  const width = useWindowWidth()
   useEffect(() => {
     if (width > 750) {
       setActiveBar(false)
     }
   }, [width]);
 
-  var handleOnClickButton = () => {
+  const handleOnClickButton = () => {
     if (!activeBar) {
       setActiveBar(true)
     } else {
