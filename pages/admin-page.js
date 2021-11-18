@@ -3,7 +3,7 @@ import AdminPage from "../components/login-admin/AdminPage";
 
 function adminPage(){
     return (
-        <div>
+        <div className='font-poppins'>
             <AdminPage/>
         </div>
     )

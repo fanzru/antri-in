@@ -5,7 +5,7 @@ import WaitingAntrian from "../components/waiting-antrian/waitingAntrian";
 
 function waitingAntrian() {
     return (
-        <div>
+        <div className='font-poppins'>
             <Navbar/>
             <Backgound/>
             <WaitingAntrian/>

@@ -10,7 +10,7 @@ function InputEmail() {
         </div>
         <input
           type="text"
-          className="p-2 h-10 focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100 font-bold"
+          className="p-2 h-10 focus:outline-none focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100 font-bold"
           placeholder="youremail@gmail.com"
         ></input>
       </div>

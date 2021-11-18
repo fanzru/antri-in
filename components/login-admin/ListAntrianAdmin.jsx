@@ -5,8 +5,8 @@ function ListAntrianAdmin(props) {
   const data = props.data;
 
   return (
-    <div className="mt-2 mb-4">
-      <div className="flex md:px-8 px-4 py-8 justify-between h-12 place-items-center bg-red-400 rounded-full md:rounded-xl shadow-lg">
+    <div className="mb-3 md:mb-6">
+      <div className="flex md:px-8 px-4 py-8 justify-between h-20 place-items-center bg-red-400 rounded-full md:rounded-3xl shadow-xl">
         <span className="font-semibold text-sm w-full mr-10 truncate">{data.nama}</span>
         <div className="flex gap-2 h-10 md:gap-8">
             <div className="bg-white rounded-lg md:rounded-sm inline-flex items-center">
@@ -15,9 +15,9 @@ function ListAntrianAdmin(props) {
                     href=""
                 ><span className='hidden md:inline'>Edit</span> Logo</a> */}
                 <button
-                    className='font-bold flex gap-4 px-2'
+                    className='font-bold flex gap-3 px-2'
                 >
-                    <span className='hidden md:inline mt-1'>Edit </span>
+                    <span className='hidden md:inline pt-2 text-xs'>Edit </span>
                     {/* <span className='text-sm md:text-base'>Logo</span> */}
                     <div className='p-2'>
                         <BsPencilFill/>
@@ -31,12 +31,12 @@ function ListAntrianAdmin(props) {
                 ><span>logo 10</span>
                 </a> */}
                 <button
-                    className='font-semibold flex w-12 px-1'
+                    className='font-semibold flex items-center justify-center w-12'
                 >
-                    <div className='pt-1 mr-1'>
+                    <div className='mr-1'>
                         <BsFillPersonFill/>
                     </div>
-                    <span>{data.jumlah}</span>
+                    <span className='text-sm'>{data.jumlah}</span>
                 </button>
             </div>
         </div>
