@@ -1,10 +1,10 @@
-import React from 'react';
-import LoginAdmin from '../components/login-admin/Login-Admin';
+import React from "react";
+import LoginAdmin from "../components/login-admin/Login-Admin";
 
 function loginAdmin() {
   return (
     <div className="font-poppins">
-      <LoginAdmin/>
+      <LoginAdmin />
     </div>
   );
 }
