@@ -49,7 +49,6 @@ function Createaccount() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log(dataDaftar);
     const { nama, email, password } = dataDaftar;
     if (
       nama.replace(/\s+/g, "") == "" ||
