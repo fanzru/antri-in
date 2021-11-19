@@ -13,9 +13,9 @@ function WaitingAntrian(props) {
 
   return (
     <div>
-      <div className="flex mx-8 justify-center ">
+      <div className="flex mx-8 h-screen justify-center ">
         <div className="flex flex-col justify-center w-full md:max-w-sm">
-          <div className="flex w-full justify-center mt-16">
+          <div className="flex w-full justify-center">
             <h1 className="text-3xl font-bold">Antrian</h1>
           </div>
           <div className="flex w-full justify-center">
@@ -32,7 +32,7 @@ function WaitingAntrian(props) {
           </div>
 
           <div className="flex flex-col py-2 mt-8 w-full justify-between mx-auto rounded-xl shadow-md bg-red-200">
-            <div className="flex justify-center font-bold text-black">
+            <div className="flex justify-center font-semibold text-xl text-gray-500 k">
               <p>Antrian Anda</p>
             </div>
             <div className="flex justify-center font-bold text-5xl">

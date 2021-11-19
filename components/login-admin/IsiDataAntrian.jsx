@@ -34,7 +34,7 @@ function IsiDataAntrian(){
                             name="" 
                             id="" 
                             placeholder='Masukkan Deskripsi Antrian'
-                            className='resize-none w-full h-32 block w-full bg-red-200 rounded-lg shadow-lg placeholder-gray-600 p-3'
+                            className='resize-none h-32 block w-full bg-red-200 rounded-lg shadow-lg placeholder-gray-600 p-3'
                         ></textarea>
                         <div className='flex items-center justify-center mt-10'>
                             <button 
