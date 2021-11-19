@@ -1,32 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DescriptionAntrian from "./descriptionAntrian";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
+import cookieCutter from 'cookie-cutter'
 
 function JoinAntrian(props) {
-  const antrian = {
-    nama: "sembako",
-    description:
-      "Antrian ini ditujukan untuk warga desa sidodadi,Antrian ini ditujukan untuk warga desa sidodadi",
-    jumlah_antrian: 100,
-  };
-
+  const [antrian, setAntrian] = useState({
+    nama: "",
+    description: "",
+    jumlah_antrian: 0,
+  });
   const [nama, setNama] = useState("");
   const [nomorHp, setNomorHP] = useState("");
+  const [Valid, setValid] = useState(false);
+  const [Loading, setLoading] = useState(false);
+  const [Success, setSuccess] = useState(false);
+  const [GagalText, setGagalText] = useState("");
 
-  const onSubmit = (event) => {
-    event.preventDefault();
+  // for testing
+  var idAntrian = "b23537da-e4b7-425b-9522-2b14626de982";
 
-    const data = {
-      nama: nama,
-      nomor_hp: nomorHp,
-    };
+  useEffect(() => {
     axios
-      .post(`${process.env.HOSTNAME}/api/`, data)
-      .then(() => {
-        console.log("Success");
+      .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/antrian?id=${idAntrian}`)
+      .then((res) => {
+        const data = res.data.data;
+        if (data.nama == "") {
+          // routing ke homepage
+          return;
+        }
+        var newState = {
+          nama: data.nama,
+          description: data.deskripsi,
+          jumlah_antrian: data.max_antrian,
+        };
+        setAntrian(newState);
+        // console.log(data)
       })
-      .catch((e) => {
-        console.log("error");
+      .catch((err) => {
+        // console.log(err.res)
+        // routing ke homepage
+      });
+  }, []);
+
+  useEffect(() => {
+    if (nama != "" && nomorHp.length > 8) {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  }, [nama, nomorHp]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    var bodyFormData = new FormData();
+    bodyFormData.append("antrian_id", idAntrian);
+    bodyFormData.append("no_telp", nomorHp);
+    bodyFormData.append("nama", nama);
+
+    axios({
+      method: "POST",
+      url: `${process.env.NEXT_PUBLIC_HOSTNAME}/api/pengantri`,
+      data: bodyFormData,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(function (res) {
+        console.log(res.data.data);
+        const data = res.data.data
+        setSuccess(true);
+        cookieCutter.set('token_pengantri', data.token)
+        // do some logic here if success (200 OK)
+        // save token and routing here
+      })
+      .catch(function (err) {
+        // do some logic if not (200 OK)
+        var res = err.response.data;
+        setGagalText(res.message);
+        setLoading(false);
       });
   };
 
@@ -71,17 +122,45 @@ function JoinAntrian(props) {
               </label>
               <input
                 className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
+                type="number"
                 id="nohp"
                 placeholder="081326161035"
                 value={nomorHp}
                 onChange={(e) => setNomorHP(e.target.value)}
               />
             </div>
+            {GagalText != "" && (
+              <div className="bg-red-50 mt-2 p-3 rounded-lg mb-3">
+                <p className="text-center text-sm text-red-700 font-bold">
+                  {GagalText}
+                </p>
+                <p className="text-center text-sm text-red-400">
+                  Returning to Homepage
+                </p>
+              </div>
+            )}
             <div className="flex items-center justify-between">
-              <button className=" items-center bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
-                Join Antrian
-              </button>
+              {Success ? (
+                <p className="items-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+                  Redirecting
+                </p>
+              ) : Loading ? (
+                <div className="flex items-center justify-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline gap-5">
+                  <p>Processing</p>
+                  <ClipLoader size={20} color="white" />
+                </div>
+              ) : Valid ? (
+                <button
+                  onClick={onSubmit}
+                  className=" items-center bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
+                >
+                  Join Antrian
+                </button>
+              ) : (
+                <p className="items-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+                  Join Antrian
+                </p>
+              )}
               <a className="inline-block align-baseline font-reguler text-sm hover:text-red-400">
                 Bantuan
               </a>
