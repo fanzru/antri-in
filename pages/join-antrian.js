@@ -13,4 +13,3 @@ function joinAntrian(props) {
 }
 
 export default joinAntrian;
-
