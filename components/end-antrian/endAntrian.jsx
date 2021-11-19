@@ -17,13 +17,13 @@ function EndAntrian(props){
           <div className="mt-8">
             <p className="font-bold text-black">Ingin mengantri lagi?</p>
           </div>
-          <div className="flex justify-between gap-4 mt-4 border border-black">
-            <div className="flex px-8 py-4 items-center justify-center bg-red-500 rounded-md">
+          <div className="flex justify-between py-2 px-4 gap-4 mt-4">
+            <div className="flex px-8 py-2 items-center justify-center bg-red-500 rounded-md">
               <button className="text-white font-bold text-xs">
                 Ya
               </button>
             </div>
-            <div className="flex px-6 py-4 items-center justify-center bg-red-100 rounded-md">
+            <div className="flex px-6 py-2 items-center justify-center bg-red-100 rounded-md">
               <button className="text-black font-bold text-xs">
                 Tidak
               </button>
