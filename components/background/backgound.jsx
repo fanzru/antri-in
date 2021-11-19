@@ -15,7 +15,7 @@ function Backgound(props) {
       />
       <div
         className={
-          "h-[100px] w-[100px] -right-16 top-60 z-auto rounded-full fixed bg-red-200 md:top-3/4 md:left-96"
+          "h-[100px] w-[100px] -right-16 top-60 z-auto rounded-full fixed bg-red-400 md:top-3/4 md:left-96"
         }
       />
       <div
