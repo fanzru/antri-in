@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useRouter } from 'next/router'
 
-function ButtonAgain ({children,href}){
+function ButtonAgain (props,{children,href}){
   
   const router = useRouter()
   const [AntriAgain, setAntriAgain] = useState(false)
