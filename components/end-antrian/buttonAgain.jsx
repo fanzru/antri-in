@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import { useRouter } from 'next/router'
 
-import { useSelector } from 'react-redux'
-import selectEndAntrianStatus  from "../../redux/endAntriSlice";
-
 function ButtonAgain ({children,href}){
   
   const router = useRouter()
