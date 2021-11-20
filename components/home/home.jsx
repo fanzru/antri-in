@@ -58,7 +58,7 @@ function Home(props) {
             <div className="w-full pt-2 relative mx-auto text-gray-60 ">
               <input
                 className="border-2 w-full border-gray-300 bg-white py-3 px-4  rounded-full text-sm focus:outline-none focus:border-red-300"
-                type="search"
+                type="text"
                 name="search"
                 placeholder="Search"
               />

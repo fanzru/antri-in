@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/header/navbar.jsx";
 import JoinAntrian from "../components/join-antrian/joinAntrian.jsx";
 import Home from "../components/home/home";
+import { Provider } from 'react-redux'
 
 //import {useInView} from "react-intersection-observer";
 //import {useDispatch} from "react-redux";
@@ -9,8 +10,8 @@ import Home from "../components/home/home";
 
 export default function App() {
   return (
-    <div className="font-poppins">
-      <Home />
-    </div>
+      <div className="font-poppins">
+        <Home />
+      </div>
   );
 }
