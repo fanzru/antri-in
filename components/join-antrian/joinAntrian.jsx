@@ -15,7 +15,7 @@ function JoinAntrian(props) {
   const [Valid, setValid] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
-  const [GagalText, setGagalText] = useState("");
+  const [GagalText, setGagalText] = useState("Antrian Tidak Valid");
 
   // for testing
   var idAntrian = "b23537da-e4b7-425b-9522-2b14626de982";
