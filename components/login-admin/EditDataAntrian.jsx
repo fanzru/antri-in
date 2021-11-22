@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../header/navbar";
 import Backgound from "../background/backgound";
-import { HiArrowNarrowRight } from "react-icons/hi";
+// import { HiArrowNarrowRight } from "react-icons/hi";
 
-function IsiDataAntrian(){
+function EditDataAntrian(){
     return (
         <div>
             <Backgound/>
@@ -40,13 +40,9 @@ function IsiDataAntrian(){
                             <button 
                                 type="submit"
                                 className="flex items-center justify-center px-6 py-2 bg-red-500 rounded-lg h-10 w-28 text-white"
-                            >Tambah
-                            <div className="pt-1 ml-1">
-                                <HiArrowNarrowRight />
-                            </div>
+                            >Ubah
                             </button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
@@ -54,4 +50,4 @@ function IsiDataAntrian(){
     )
 }
 
-export default IsiDataAntrian;
+export default EditDataAntrian;
