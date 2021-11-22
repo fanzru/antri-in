@@ -7,6 +7,7 @@ import axios from "axios";
 
 function Home(props) {
   const [dataAntrian, setAntrian] = useState([]);
+  const [Search, setSearch] = useState("")
 
   const getAntrian = () => {
     axios
@@ -23,6 +24,19 @@ function Home(props) {
   useEffect(() => {
     getAntrian();
   }, []);
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+    axios
+    .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/antrian?search=${e.target.value}`)
+    .then((res) => {
+      const data = res.data.data;
+      setAntrian(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  }
 
   return (
     <div className="">
@@ -61,6 +75,8 @@ function Home(props) {
                 type="text"
                 name="search"
                 placeholder="Search"
+                onChange={handleSearch}
+                value={Search}
               />
               <button
                 type="submit"
