@@ -11,16 +11,15 @@ import ListReqAdmin from "./ListRequestAdmin";
 
 
 function RequestAdmin(){
+  var cookie = require('cookie-cutter');
 
   const List = useSelector(selectRequestAdmin)
   const dispatch = useDispatch(selectRequestAdmin)
 
   useEffect(() => {
 
-    let cookie = require('cookie-cutter');
 
     // Jangan lupa di comment
-    cookie.set("token_admin","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiZXZlcnlvbmVAYW50cmlpbi5jb20iLCJyb2xlIjoic3VwZXIiLCJlbWFpbCI6ImV2ZXJ5b25lQGFudHJpaW4uY29tIiwiaWQiOiIwZDQxOTEzYi1kMDJlLTRiZjktYjU5OS0xZGVlNDU3MjJiZjAiLCJleHAiOjE2Mzc2NTg2NjR9.NxrhaxlajLfR0aQIWsuafoHHSN1sCtgXLVPYoXNs1kQ") 
 
     let token = cookie.get("token_admin") 
     let config = {
