@@ -1,34 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const daftarSlice = createSlice({
-  name: "form_daftar",
+const loginSlice = createSlice({
+  name: "form_login",
   initialState: {
     data: {
-      nama: "",
       email: "",
       password: "",
     },
   },
   reducers: {
-    setNama: (state, action) => {
-      state.data.nama = action.payload;
-    },
-    setEmail: (state, action) => {
+    setEmailLogin: (state, action) => {
       state.data.email = action.payload;
     },
-    setPassword: (state, action) => {
+    setPasswordLogin: (state, action) => {
       state.data.password = action.payload;
     },
   },
 });
 
 // Export Setter
-export const { setNama, setEmail, setPassword } = daftarSlice.actions;
+export const { setEmailLogin, setPasswordLogin } = loginSlice.actions;
 
 // Buat store yang nge bind "nama" slice ke slice fungsinya ini dilakukan di store.js
 
 // Export Selector, dimana mengarahkan ke "nama" slice dan nama statenya
-export const selectDaftarData = (state) => state.form_daftar.data;
+export const selectLoginData = (state) => state.form_login.data;
 
 // Export Reducer
-export default daftarSlice.reducer;
+export default loginSlice.reducer;
