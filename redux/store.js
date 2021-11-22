@@ -1,6 +1,7 @@
 import daftarSlice from "./daftarSlice";
 import loginSlice from "./loginSlice";
 import endAntrianSlice from "./endAntriSlice"
+import requestAdminSlice from "./requestAdmin"
 
 const { configureStore, combineReducers } = require("@reduxjs/toolkit");
 
@@ -9,6 +10,7 @@ export const Store = configureStore({
     form_daftar: daftarSlice,
     form_login: loginSlice,
     end_antrian: endAntrianSlice,
+    request_admin: requestAdminSlice
   }),
 });
 

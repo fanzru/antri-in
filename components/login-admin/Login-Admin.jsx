@@ -9,7 +9,10 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { selectLoginData } from "../../redux/loginSlice";
 import axios from "axios";
 
+
 function LoginAdmin() {
+  var cookie = require('cookie-cutter');
+
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
   const [GagalText, setGagalText] = useState("");
@@ -60,6 +63,8 @@ function LoginAdmin() {
       .then(function (response) {
         // Ini setting UI by Kae
         setSuccess(true);
+        let token = response.data.data.token
+        cookie.set("token_admin", token)
 
         // do some logic here if success (200 OK)
         // routing here
