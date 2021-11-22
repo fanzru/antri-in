@@ -1,11 +1,16 @@
 import React from "react";
 import RequestAdmin from "../components/login-admin/RequestAdmin";
+import { Provider } from "react-redux";
+import { Store } from "../redux/store";
 
-function request_admin(){
+function request_admin() {
     return (
-        <div>
-            <RequestAdmin/>
-        </div>
+        <Provider store={Store}>
+            <div>
+                <RequestAdmin />
+            </div>
+        </Provider>
+
     )
 }
 

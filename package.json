@@ -10,6 +10,7 @@
     "@react-hook/window-size": "^3.0.7",
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.24.0",
+    "cookie-cutter": "^0.2.0",
     "dotenv": "^10.0.0",
     "framer-motion": "^5.2.1",
     "next": "latest",
