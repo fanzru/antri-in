@@ -1,4 +1,4 @@
-import React,  {useEffect} from "react";
+import React from "react";
 import { BsCheckLg } from "react-icons/bs"
 import axios from "axios";
 import { setDataListRequestAdmin, selectRequestAdmin } from "../../redux/requestAdmin";
@@ -15,9 +15,6 @@ function ListReqAdmin(props) {
     var config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-
-    useEffect(() => {
-    },[])
 
     const handleAccept = () => {
         axios.post(
