@@ -22,7 +22,8 @@ function ListReqAdmin(props) {
         ).then((res) => {
             console.log(res)
             list.splice(idx, 1)
-            dispatch(setDataListRequestAdmin(list))
+            let newList = removeElementList(list, idx)
+            dispatch(setDataListRequestAdmin(newList))
             alert("Berhasil")
         }).catch(e => {
             console.log(e)
