@@ -3,6 +3,8 @@ import DescriptionAntrian from "./descriptionAntrian";
 import axios from "axios";
 
 function JoinAntrian(props) {
+  const detailAntrian = props.data
+
   const antrian = {
     nama: "sembako",
     description:
@@ -38,7 +40,7 @@ function JoinAntrian(props) {
             <div className="flex justify-center font-bold text-red-400 text-2xl mt-4">
               Informasi Antrian
             </div>
-            <DescriptionAntrian data={antrian} />
+            <DescriptionAntrian data={detailAntrian} />
           </div>
         </div>
         <div className="flex mx-auto flex-col w-full mt-4">

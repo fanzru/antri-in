@@ -2,15 +2,16 @@ import React from "react";
 
 function DescriptionAntrian(props) {
   const data = props.data;
-
   return (
     <div className="mt-2 mb-4">
-      <div className="font-medium">Antrian :</div>
+      <div className="font-bold">Antrian :</div>
       <div>{data.nama}</div>
-      <div className="font-medium">Deskripsi :</div>
-      <div>{data.description}</div>
-      <div className="font-medium">Jumlah Antrian :</div>
-      <div>{data.jumlah_antrian}</div>
+      <div className="font-bold">Deskripsi :</div>
+      <div>{data.deskripsi}</div>
+      <div className="font-bold">Jumlah antrian   : </div>
+      <div>{data.max_antrian}</div>
+      <div className="font-bold">Antrian saat ini : </div>
+      <div>{data.curr_antrian}</div>
     </div>
   );
 }
