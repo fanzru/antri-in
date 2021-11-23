@@ -30,7 +30,7 @@ function Navbar() {
             <div className="flex">
               <a href="#" className="flex items-center">
                 <img
-                  src="antriin-logo.svg"
+                  src="../antriin-logo.svg"
                   alt=""
                   className="h-[35px] w-100% object-contain m-2"
                 />
