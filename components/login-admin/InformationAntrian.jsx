@@ -1,12 +1,12 @@
 import React from "react";
-import {BsFillPersonFill, BsPlusLg} from "react-icons/Bs"
+import {BsFillPersonFill, BsPlusLg} from "react-icons/bs"
 
 function InformationAntrian(){
     return(
         <div>
             <div className='pt-8 px-10'>
                 <div className='flex items-center justify-between p-3 bg-red-400 rounded-xl shadow-lg mb-10'>
-                    <span className='font-semibold'>Customer Service Antrian A</span>
+                    <span className='font-semibold'>Customer Service Antrian B</span>
                     <div className='flex items-center'>
                         <div>
                             <BsFillPersonFill/>
