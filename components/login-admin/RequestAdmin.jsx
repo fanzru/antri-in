@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import Navbar from "../header/navbar";
-import Backgound from "../background/backgound";
+// import Navbar from "../header/navbar";
+// import Backgound from "../background/backgound";
 import axios from "axios";
 import { selectRequestAdmin, setDataListRequestAdmin } from "../../redux/requestAdmin";
 import { useSelector, useDispatch } from "react-redux";
@@ -59,8 +59,6 @@ function RequestAdmin(){
 
     return (
         <div>
-            <Navbar/>
-            <Backgound/>
             <div className='mt-10 mx-8 md:mx-36'>
                 <span className='font-bold text-2xl'>Request Admin</span>
                 <div className="bg-gray-400 p-5 mt-5 md:mt-8 rounded-xl shadow-lg">

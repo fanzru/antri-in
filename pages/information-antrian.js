@@ -1,17 +1,17 @@
 import React from "react";
-import AdminPage from "../components/login-admin/AdminPage";
 import Backgound from "../components/background/backgound";
 import Navbar from "../components/header/navbar";
+import InformationAntrian from "../components/login-admin/InformationAntrian";
 
 
-function adminPage(){
+function informationAntrian(){
     return (
-        <div className='font-poppins'>
+        <div>
             <Navbar/>
             <Backgound/>
-            <AdminPage/>
+            <InformationAntrian/>
         </div>
     )
 }
 
-export default adminPage;
+export default informationAntrian;

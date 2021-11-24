@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../header/navbar";
-import Backgound from "../background/backgound";
+// import Navbar from "../header/navbar";
+// import Backgound from "../background/backgound";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import InputEmail from "../input/InputEmail";
 import InputPass from "../input/InputPass";
@@ -79,9 +79,7 @@ function LoginAdmin() {
 
   return (
     <div className="">
-      <Backgound />
       <div className={"z-50"}>
-        <Navbar />
         <div className="md:grid md:grid-cols-2 gap-4 place-items-center py-28 px-5">
           <div className="hidden md:block">
             <img className="" src="ilus-antri01.svg"></img>

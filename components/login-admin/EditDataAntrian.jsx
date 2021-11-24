@@ -1,13 +1,11 @@
 import React from "react";
-import Navbar from "../header/navbar";
-import Backgound from "../background/backgound";
+// import Navbar from "../header/navbar";
+// import Backgound from "../background/backgound";
 // import { HiArrowNarrowRight } from "react-icons/hi";
 
 function EditDataAntrian(){
     return (
         <div>
-            <Backgound/>
-            <Navbar/>
             <div className='md:grid md:grid-cols-5 place-items-center py-28 pl-10 pr-5'>
                 <div className="h-full md:col-span-3 hidden md:block">
                     <img src="ilus-antri01.svg" alt="ilustrasi" />

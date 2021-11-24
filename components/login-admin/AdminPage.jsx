@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../header/navbar";
-import Backgound from "../background/backgound";
+// import Navbar from "../header/navbar";
+// import Backgound from "../background/backgound";
 import {MdOutlineSearch,MdPersonAddAlt1} from "react-icons/md"
 import ListAntrianAdmin from "./ListAntrianAdmin";
 
@@ -21,8 +21,6 @@ function Adminpage(){
   ];
   return(
     <div>
-      <Backgound/>
-      <Navbar/>
       <div className='md:grid md:grid-cols-2'>
         <div className='mt-24 md:col-start-2 md:col-end-3'>
           <div className='bg-gray-400 md:bg-transparent my-3 mx-5 md:mx-8 p-8 rounded-2xl md:rounded-none shadow-xl md:shadow-none'>
