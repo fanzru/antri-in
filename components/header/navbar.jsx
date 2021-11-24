@@ -39,7 +39,7 @@ function Navbar() {
             <div className="w-1/4 justify-around hidden md:flex lg:flex lg:items-center">
               {menus.map((menu, index) => {
                 return (
-                  <button
+                  <button id={index}
                     className="flex items-center hover:font-semibold transition-all "
                     onClick={() => setView(menu)}
                   >
@@ -82,7 +82,7 @@ function Navbar() {
               >
                 {menus.map((menu, index) => {
                   return (
-                    <button
+                    <button id={index}
                       className="block py-2 px-4 text-sm container rounded-md hover:bg-red-400 hover:text-white"
                       onClick={() => setView(menu)}
                     >

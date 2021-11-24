@@ -3,8 +3,8 @@ import Navbar from "../header/navbar";
 import Backgound from "../background/backgound";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { MdOutlineSearch } from "react-icons/md";
+import { useRouter } from 'next/router'
 import axios from "axios";
-import {useRouter} from "next/router"
 
 function Home(props) {
   const [dataAntrian, setAntrian] = useState([]);

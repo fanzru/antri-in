@@ -9,7 +9,6 @@ function JoinAntrian(props) {
   const detailAntrian = props.data
   const router = useRouter()
 
-
   const [nama, setNama] = useState("");
   const [nomorHp, setNomorHP] = useState("");
   const [Valid, setValid] = useState(false);
