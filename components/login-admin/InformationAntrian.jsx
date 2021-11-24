@@ -6,7 +6,7 @@ function InformationAntrian(){
         <div>
             <div className='pt-8 px-10'>
                 <div className='flex items-center justify-between p-3 bg-red-400 rounded-xl shadow-lg mb-10'>
-                    <span className='font-semibold'>Customer Service Antrian B</span>
+                    <span className='font-semibold'>Customer Service Antrian A</span>
                     <div className='flex items-center'>
                         <div>
                             <BsFillPersonFill/>
