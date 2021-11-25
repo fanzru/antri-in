@@ -5,9 +5,9 @@ import { GlobalStore } from "../redux/store";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Provider store={  GlobalStore }>
+      <Provider store={  GlobalStore  }>
         <ToastNotification />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Provider>
     </>
   )

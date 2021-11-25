@@ -5,7 +5,7 @@ import { removeElementList } from "../utils/helper/removeElementList";
 const toastSlice = createSlice({
   name: "toast",
   initialState: {
-    data: [{id: "nadskdjas", message:"halo"}],
+    data: [],
   },
   reducers: {
     deleteToastID: (state, action) => {
