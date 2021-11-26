@@ -4,8 +4,18 @@ import axios from "axios";
 import {trimSpace} from "../../utils/helper/trimSpace"
 import { useRouter } from "next/router";
 import ClipLoader from "react-spinners/ClipLoader";
+import { BsTelephone } from "react-icons/bs";
 
 function JoinAntrian(props) {
+  // var cookie = require("cookie-cutter");
+  // const router = useRouter
+
+  // const data = cookie.get("token_pengantri")
+  // if (data) return (
+  //   router.push("/")
+  // )
+
+  
   const detailAntrian = props.data
   const router = useRouter()
 
@@ -56,6 +66,7 @@ function JoinAntrian(props) {
   };
 
   return (
+
     <div className="mx-auto h-screen ">
       <div className="flex flex-col container mx-auto w-full py-3 items-center mt-4 md:mt-20 md:flex-row">
         <div className="flex flex-col w-full py-auto px-8">
@@ -70,8 +81,56 @@ function JoinAntrian(props) {
           <div className="text-center font-bold mb-4 text-3xl">
             Isi Biodata Antrian
           </div>
+
           <form className="rounded px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-red-500 text-sm font-bold mb-2"
+            >
+              Nama
+            </label>
+            <div className="flex items-center justify-center w-full mt-1 border border-black">
+              <div className="flex rounded-lg shadow-lg w-full">
+                <div className="inline-flex items-center px-3 rounded-l-lg bg-red-100 text-gray-500 text-sm">
+                    <BsTelephone />
+                </div>
+                <input
+                    type="text"
+                    className="p-2 h-10 focus:outline-none focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100"
+                    type="text"
+                    placeholder="Masukan Nama Lengkap"
+                    id="nama"
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
+                />
+              </div>
+            </div>
+            
+            <label
+              htmlFor="nohp"
+              className="block text-red-500 text-sm font-bold mb-2 mt-4"
+            >
+              Nomor HP
+            </label>
+
+            <div className="flex items-center justify-center w-full mt-1 mb-6">
+              <div className="flex rounded-lg shadow-lg w-full">
+                <div className="inline-flex items-center px-3 rounded-l-lg bg-red-100 text-gray-500 text-sm">
+                    <BsTelephone />
+                </div>
+                <input
+                    type="text"
+                    className="p-2 h-10 focus:outline-none focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100"
+                    type="number"
+                    id="nohp"
+                    placeholder="081326161035"
+                    value={nomorHp}
+                    onChange={(e) => setNomorHP(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* <div className="mb-4">
               <label
                 htmlFor="name"
                 className="block text-black text-sm font-bold mb-2"
@@ -86,8 +145,8 @@ function JoinAntrian(props) {
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
               />
-            </div>
-            <div className="mb-6">
+            </div> */}
+            {/* <div className="mb-6">
               <label
                 htmlFor="nohp"
                 className="block text-black text-sm font-bold mb-4"
@@ -102,7 +161,7 @@ function JoinAntrian(props) {
                 value={nomorHp}
                 onChange={(e) => setNomorHP(e.target.value)}
               />
-            </div>
+            </div> */}
             {GagalText != "" && (
               <div className="bg-red-50 mt-2 p-3 rounded-lg mb-3">
                 <p className="text-center text-sm text-red-700 font-bold">
@@ -113,7 +172,7 @@ function JoinAntrian(props) {
                 </p>
               </div>
             )}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-2">
             {Success ? (
                 <p className="items-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
                   Redirecting

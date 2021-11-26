@@ -10,8 +10,6 @@ function DescriptionAntrian(props) {
       <div>{data.deskripsi}</div>
       <div className="font-bold">Jumlah antrian   : </div>
       <div>{data.max_antrian}</div>
-      <div className="font-bold">Antrian saat ini : </div>
-      <div>{data.curr_antrian}</div>
     </div>
   );
 }
