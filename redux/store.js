@@ -4,7 +4,7 @@ import endAntrianSlice from "./endAntriSlice"
 import requestAdminSlice from "./requestAdmin"
 import toastSlice from "./toastSlice";
 
-const { configureStore, combineReducers } = require("@reduxjs/toolkit");
+const { configureStore, combineReducers, getDefaultMiddleware } = require("@reduxjs/toolkit");
 
 export const Store = configureStore({
   reducer: combineReducers({
