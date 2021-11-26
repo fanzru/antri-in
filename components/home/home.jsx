@@ -111,8 +111,13 @@ function Home(props) {
           <div className="flex items-center justify-center ">
             <a href="/login-admin">
               <button className="text-red-400 font-bold hover:text-red-600 ">
-                {" "}
                 Login Admin
+              </button>
+            </a>
+            <div className="text-red-400 font-bold px-2"> || </div>
+            <a href="/cek-antrian">
+              <button className="text-red-400 font-bold hover:text-red-600 ">
+                Cek Antrian
               </button>
             </a>
           </div>
