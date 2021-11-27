@@ -10,6 +10,27 @@ import { createToast, selectToast } from '../../redux/toastSlice'
 
 function JoinAntrian(props) {  
   const detailAntrian = props.data
+  // var cookie = require('cookie-cutter');
+  // const dispatch = useDispatch(selectToast)
+
+  // const tokenData = cookie.get("token_pengantri")
+  
+  // if (tokenData) {
+  //   axios
+  //   .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/trace`,{
+  //     headers: {
+  //       Authorization: `Bearer ${tokenData}`
+  //     }
+  //   })
+  //   .then((res)=> {
+  //     dispatch(createToast("Selesaikan Antrian Anda"))
+  //     router.push("/waiting-antrian")
+  //   })
+  //   .catch((e) => {
+  //     console.log(e)
+  //   })  
+  // }
+
   const router = useRouter()
   const [nama, setNama] = useState("");
   const [nomorHp, setNomorHP] = useState("");
@@ -18,25 +39,9 @@ function JoinAntrian(props) {
   const [Success, setSuccess] = useState(false);
   const [GagalText, setGagalText] = useState("");
 
-  var cookie = require('cookie-cutter');
-  const dispatch = useDispatch(selectToast)
-  const tokenData = cookie.get("token_pengantri")
+ 
   
-  if (tokenData) {
-    axios
-    .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/trace`,{
-      headers: {
-        Authorization: `Bearer ${tokenData}`
-      }
-    })
-    .then((res)=> {
-      dispatch(createToast("Selesaikan Antrian Anda"))
-      router.push("/waiting-antrian")
-    })
-    .catch((e) => {
-      console.log(e)
-    })  
-  }
+  
 
   useEffect(() => {
     if ( trimSpace(nama) && nomorHp.length > 8) {
