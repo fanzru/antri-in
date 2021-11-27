@@ -119,8 +119,8 @@ function Createaccount() {
         <div className="px-20 pt-12 w-full md:h-full sm:h-screen">
           <span className="font-bold text-xl">Create Account</span>
           <form action="" className="mt-3">
-            {ListInput.map((data) => {
-              return <InputUnderline data={data} />;
+            {ListInput.map((data, id) => {
+              return <InputUnderline key={id} data={data} />;
             })}
             {tombolSubmit()}
           </form>

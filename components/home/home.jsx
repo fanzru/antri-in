@@ -91,7 +91,7 @@ function Home(props) {
             <div className="flex flex-col py-5 overflow-y-auto h-80 px-4 mt-5 ">
               {dataAntrian.map((antrian, index) => {
                 return (
-                  <button onClick={ ()=> router.push(`/join-antrian/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
+                  <button key={index} onClick={ ()=> router.push(`/join-antrian/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
                     <div className="font-reguler text-sm">{antrian.nama}</div>
                     <div className="flex justify-between items-center">
                       <div className="mx-3 font-bold items-center text-sm">
