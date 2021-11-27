@@ -11,7 +11,7 @@ function EditDataAntrian(){
                     <img src="ilus-antri01.svg" alt="ilustrasi" />
                 </div>
                 <div className="md:col-span-2 px-5 md:px-20 pt-11 w-full md:h-full">
-                    <span className="text-2xl font-bold">Isi Data Antrian</span>
+                    <span className="text-2xl font-bold">Edit Data Antrian</span>
                     <form action="" className='pt-5'>
                         <label 
                             htmlFor=""
