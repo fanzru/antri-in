@@ -1,8 +1,8 @@
 import React from "react";
 import {BsFillPersonFill, BsPlusLg} from "react-icons/bs"
 
-function InformationAntrian(){
-    return(
+export default function AddPengatri(){
+    return (
         <div>
             <div className='pt-8 px-10'>
                 <div className='flex items-center justify-between p-3 bg-red-400 rounded-xl shadow-lg mb-10'>
@@ -26,34 +26,50 @@ function InformationAntrian(){
                     </div>
                 </div>
                 <div className='bg-gray-400 p-5 rounded-2xl shadow-lg'>
-                    {/* bagian Berikutnya */}
-                    <div className='flex justify-between items-center p-3 bg-red-200 mb-3 rounded-lg shadow-md'>
-                        <span className='font-semibold'>Nama Panjang</span>
-                        <div className='flex gap-2'>
-                            <button className='h-full py-1 px-2 bg-red-500 rounded-md shadow-md text-white'>Berikutnya</button>
+                    {/* Nomor Antrian Selanjutnya */}
+                    <div className='grid place-items-center mb-6'>
+                        <div className='flex justify-between items-center gap-8 px-2 text-xs text-white py-2 bg-gray-500 mb-3 rounded-lg shadow-md'>
+                            <span className='font-semibold'>Nomor Antrian Selanjutnya</span>
+                            <span className='font-semibold'>XXX</span>
                         </div>
                     </div>
-                    {/* list lainnya */}
-                    <div className='flex justify-between items-center p-3 bg-red-200 mb-3 rounded-lg shadow-md'>
-                        <span className='font-semibold'>Nama Panjang</span>
+                    {/* Form nama input */}
+                    <div className='flex mb-4'>
+                        <form className='w-full' action="">
+                            <div className='mb-3'>
+                                <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='Nama Pengantri'/>
+                            </div>
+                            <div className='mb-3 '>
+                                <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='No. Telp Pengantri'/>
+                            </div>
+                            <div className='mt-16'>
+                                <button className='flex justify-between items-center w-full bg-white p-3 rounded-lg shadow-md'>
+                                    <span className='font-bold'>Tambah Antrian Manual</span>
+                                    <div className='flex items-center justify-center'>
+                                        <BsPlusLg/>
+                                    </div>    
+                                </button>
+                            </div>
+                            
+                            
+                        </form>
+                        {/* <span className='font-semibold'>Nama Panjang</span>
                         <div className='flex gap-2'>
                             <button className='h-full py-1 px-2 bg-white rounded-md shadow-md font-semibold'>Edit Antrian</button>
                             <button className='h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md'>
                                 <img src="rounded-x-button.svg" alt="x" srcset="" className='h-full p-2' />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     {/* tambah antrian manual */}
-                    <div className='flex justify-between items-center bg-white p-3 rounded-lg shadow-md'>
+                    {/* <div className='flex justify-between items-center bg-white p-3 rounded-lg shadow-md'>
                         <span className='font-bold'>Tambah Antrian Manual</span>
                         <div className='flex items-center justify-center'>
                             <BsPlusLg/>
                         </div>        
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
     )
 }
-
-export default InformationAntrian;
