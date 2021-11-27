@@ -4,13 +4,14 @@ import axios from "axios";
 import { setDataListRequestAdmin, selectRequestAdmin } from "../../redux/requestAdmin";
 import { useSelector, useDispatch } from "react-redux";
 import { removeElementList } from "../../utils/helper/removeElementList";
+import Cookies from 'universal-cookie';
 
 function ListReqAdmin(props) {
     const dataReq = props.data;
     const idx = props.index;
     var list = useSelector(selectRequestAdmin)
     const dispatch = useDispatch(selectRequestAdmin)
-    var cookie = require('cookie-cutter');
+    const cookie = new Cookies();
     var token = cookie.get("token_admin") 
     var config = {
       headers: { Authorization: `Bearer ${token}` }

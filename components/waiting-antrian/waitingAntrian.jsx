@@ -3,6 +3,8 @@ import React,{ useState,useEffect} from 'react';
 import { useDispatch } from 'react-redux'
 import { createToast, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
+import Cookies from 'universal-cookie';
+
 function WaitingAntrian(props) {
   const dispatch = useDispatch(selectToast)
   
@@ -10,7 +12,7 @@ function WaitingAntrian(props) {
   const [Loading, setLoading] = useState(true);
   const getDataAntrianNow = () => {
     
-    var cookie = require("cookie-cutter");
+    const cookie = new Cookies();
     const token = cookie.get("token_pengantri")
 
     axios

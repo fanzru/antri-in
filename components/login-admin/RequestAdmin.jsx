@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { selectRequestAdmin, setDataListRequestAdmin } from "../../redux/requestAdmin";
 import { useSelector, useDispatch } from "react-redux";
+import Cookies from 'universal-cookie';
 
 // bagian isi request
 import {BsCheckLg} from "react-icons/bs"
@@ -11,7 +12,7 @@ import ListReqAdmin from "./ListRequestAdmin";
 
 
 function RequestAdmin(){
-  var cookie = require('cookie-cutter');
+  const cookie = new Cookies();
 
   const List = useSelector(selectRequestAdmin)
   const dispatch = useDispatch(selectRequestAdmin)
