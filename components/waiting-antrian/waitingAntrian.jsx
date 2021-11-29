@@ -1,15 +1,41 @@
-import React from 'react';
+import router from 'next/router';
+import React,{ useState,useEffect} from 'react';
+import { useDispatch } from 'react-redux'
+import { createToast, selectToast } from '../../redux/toastSlice'
+import axios from "axios";
+import Cookies from 'universal-cookie';
 
 function WaitingAntrian(props) {
+  const dispatch = useDispatch(selectToast)
   
-  const dataAntrian = ({
-    name: "Sembako",
-    antrian_now: "20"
-  })
+  const [dataAntrianNow, setDataAntrianNow] = useState("")
+  const [Loading, setLoading] = useState(true);
+  const getDataAntrianNow = () => {
+    
+    const cookie = new Cookies();
+    const token = cookie.get("token_pengantri")
 
-  const dataPengantri = ({
-    no_antrian: "10"
-  })
+    axios
+    .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/trace`,{
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then((res)=> {
+      const data = res.data.data
+      setDataAntrianNow(data)
+      setLoading(false)
+    })
+    .catch((e) => {
+        console.log(e)
+        router.push("/")
+        dispatch(createToast("Tidak Ada Antrian"))
+    })
+  }
+
+  useEffect(() => {
+    getDataAntrianNow()
+  }, [])
 
   return (
     <div>
@@ -18,26 +44,47 @@ function WaitingAntrian(props) {
           <div className="flex w-full justify-center">
             <h1 className="text-3xl font-bold">Antrian</h1>
           </div>
-          <div className="flex w-full justify-center">
-            <h1 className="text-3xl font-bold">{dataAntrian.name}</h1>
-          </div>
+          {Loading ? (
+            <div className="flex w-full justify-center">
+              <h1 className="text-3xl font-bold">------------</h1>
+            </div>
+          ):(
+            <div className="flex w-full justify-center">
+              <h1 className="text-3xl font-bold">{dataAntrianNow.antrian.nama}</h1>
+            </div>
+          )}
+          
 
           <div className="flex flex-col py-5 mt-10 w-full justify-between mx-auto border rounded-xl shadow-md bg-red-200">
             <div className="flex justify-center font-bold text-xl text-black ">
               <p>Antrian Saat ini</p>
             </div>
-            <div className="flex justify-center font-bold text-9xl">
-              <p>{dataAntrian.antrian_now}</p>
-            </div>
+            {Loading ? (
+              <div className="flex justify-center font-bold text-9xl">
+                <p>--</p>
+              </div> 
+              ):(
+                <div className="flex justify-center font-bold text-9xl">
+                <p>{dataAntrianNow.antrian.curr_antrian}</p>
+                </div> 
+              )
+            }
           </div>
 
           <div className="flex flex-col py-2 mt-8 w-full justify-between mx-auto rounded-xl shadow-md bg-red-200">
             <div className="flex justify-center font-semibold text-xl text-gray-500 k">
               <p>Antrian Anda</p>
             </div>
-            <div className="flex justify-center font-bold text-5xl">
-              <p>{dataPengantri.no_antrian}</p>
-            </div>
+            {Loading? (
+              <div className="flex justify-center font-bold text-5xl">
+                <p>-----------</p>
+              </div>
+            ):(
+              <div className="flex justify-center font-bold text-5xl">
+                <p>{dataAntrianNow.no_antrian_pengantri}</p>
+              </div>
+            )}
+            
           </div>
 
           <div className="flex flex-col justify-center mt-10 mb-16">

@@ -8,10 +8,11 @@ import { useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { selectLoginData } from "../../redux/loginSlice";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 
 function LoginAdmin() {
-  var cookie = require('cookie-cutter');
+  const cookie = new Cookies();
 
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);

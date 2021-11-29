@@ -12,7 +12,7 @@ function ToastNotification() {
     { (toastSelect.length == 0) ? <></> :
       <span className="grid gap-5 justify-center fixed top-16 z-10 w-screen h-0">
         {toastSelect.map((v, id) => {
-          return <ToastComponent idx={id} message={v.message} id={v.id} />
+          return <ToastComponent key={id} message={v.message} id={v.id} />
         })}
       </span>
     }

@@ -4,12 +4,12 @@ import Navbar from "../../components/header/navbar";
 import Backgound from "../../components/background/backgound";
 import {useRouter} from "next/router"
 import  axios from "axios"
-
+import { useDispatch } from 'react-redux'
+//import { createToast, selectToast } from '../redux/toastSlice'
 
 
 function joinAntrian(props) {
   const router = useRouter()
-
 
   const [dataAntrian, setDataAntrian] = useState("")
   const data = router.query

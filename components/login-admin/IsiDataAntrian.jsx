@@ -5,10 +5,11 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { trimSpace } from "../../utils/helper/trimSpace";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 function IsiDataAntrian() {
   // Cek apakah cookies valid
-
+  const cookie = new Cookies();
   const [Nama, setNama] = useState("");
   const [Deskripsi, setDeskripsi] = useState("");
   const [validInput, setvalidInput] = useState(false);
@@ -27,7 +28,6 @@ function IsiDataAntrian() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setProcessing(true);
-    var cookie = require("cookie-cutter");
     var token = cookie.get("token_admin");
     var config = {
       headers: { Authorization: `Bearer ${token}` }

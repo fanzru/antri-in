@@ -59,8 +59,8 @@ function Adminpage(){
               </div>
             </div>
             <div className=''>
-              {DummyList.map((data) => {
-                return <ListAntrianAdmin data={data} />;
+              {DummyList.map((data, idx) => {
+                return <ListAntrianAdmin key={idx} data={data} />;
               })}
             </div>
           </div>
