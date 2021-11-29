@@ -6,7 +6,6 @@ import ToastComponent from './ToastComponent';
 function ToastNotification() {
 
   const toastSelect = useSelector(selectToast)
-  console.log(toastSelect)
 
   return (
     <>

@@ -1,15 +1,12 @@
 import "tailwindcss/tailwind.css";
-import { Provider } from 'react-redux'
-import ToastNotification from "../components/notification/ToastNotification";
-import { GlobalStore } from "../redux/store";
+import MiddlewareComponent from "../components/middleware/MiddlewareComponent";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Provider store={  GlobalStore  }>
-        <ToastNotification />
+      <MiddlewareComponent>
         <Component {...pageProps} />
-      </Provider>
+      </MiddlewareComponent>
     </>
   )
 }
