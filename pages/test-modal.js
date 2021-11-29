@@ -1,37 +1,33 @@
 import React, {useState} from 'react'
-import Modal from '../components/modal/Modal'
+import Modal, { DefaultModalData } from '../components/modal/Modal'
 
 function TestModal() {
 
-  const [modalData, setModal] = useState({
-    message: "",
-    acceptMessage: "",
-    declineMessage: "",
-    onAccept: undefined,
-    onDecline: undefined,
-  })
+  const [ShowModal, setShowModal] = useState(false)
 
-  function testModalAccept() {
-    console.log("Halo aku di acc lho")
+  /// Setup modal
+  const modalData = DefaultModalData
+  modalData.message = "Halo ini modalnya" // Must
+
+  modalData.acceptMessage = "Ini tombol accept" // Optional
+  modalData.onAccept = () => { // Must if acceptMessage is not empty
+    alert("Aku di acc yay!")
+    setShowModal(false) // Kalau mau ditutup setelah di klik, bisa langsung tambahin ini
   }
 
-  function testModalDecline() {
-    alert("Aku di decline :(")
+  modalData.declineMessage = "Ini tombol decline" // Optional
+  modalData.onDecline = () => {  // Must if declineMessage is not empty
+    alert("Aku di decline")
+    setShowModal(false) // Kalau mau ditutup setelah di klik, bisa langsung tambahin ini
   }
 
   const handleClick = () => {
-    setModal({
-      message: "Halo",
-      acceptMessage: "oke",
-      declineMessage: "gagal",
-      onAccept: testModalAccept,
-      onDecline: testModalDecline,
-    })
+    setShowModal(true)
   }
 
   return (
     <>
-    <Modal modalData={modalData} />
+    <Modal modalData={modalData} show={ShowModal}/>
     <div className="w-scree h-screen bg-gray-400 flex justify-center items-center">
       <button className="p-3 bg-white shadow-lg rounded-lg" onClick={handleClick} >
         Klik untuk menampilkan Modal, Jika di acc maka akan keluar console log, jka tidak maka akan keluar alert
