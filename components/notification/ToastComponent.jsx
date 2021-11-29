@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { selectToast, deleteToastID } from '../../redux/toastSlice'
-import { BiX } from "react-icons/bi";
-
+import {XCircleIcon} from '@heroicons/react/solid'
 
 function ToastComponent({ id, message }) {
 
@@ -22,24 +21,23 @@ function ToastComponent({ id, message }) {
   const handleMouseLeave = () => {
     setDelayHandler(setTimeout(() => {
       dispatch(deleteToastID(id))
-
-    }, 3000))
+    }, 5000))
   }
 
   useEffect(() => {
     setDelayHandler(setTimeout(() => {
       dispatch(deleteToastID(id))
-    }, 3000))
+    }, 5000))
   }, [Hover])
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative opacity-75 hover:opacity-100 bg-red-300 w-80 border-4 border-red-500 shadow-lg rounded-lg p-5 ">
-      <p className="text-center select-none">
+    <div onMouseEnter={handleMouseEnter} onClick={closeToast} onMouseLeave={handleMouseLeave} className="flex flex-row opacity-80 hover:opacity-100 bg-red-700 max-w-[388px] shadow-lg rounded-lg p-3 ">
+      <div className="flex justify-center items-center mr-[10px]">
+        <XCircleIcon width={20} color="white" />
+      </div>
+      <p className="select-none text-white">
         {message}
       </p>
-      <button onClick={closeToast} className="absolute top-1 right-1">
-        <BiX />
-      </button>
     </div>
   )
 }
