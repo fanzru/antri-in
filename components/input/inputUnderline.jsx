@@ -13,13 +13,14 @@ function InputUnderline(props) {
   const dataDaftar = useSelector(selectDaftarData);
 
   const notValidUnderline =
-    "flex border-b border-red-500 border-gray-200 w-full mb-5 pb-2";
-  const validUnderline = "flex border-b border-gray-200 w-full mb-5 pb-2";
+  "flex rounded-lg ring-1 ring-red-400  border-gray-200 w-full mb-5";
+  const validUnderline = "flex rounded-lg w-full mb-5";
   const [validClass, setvalidClass] = useState(notValidUnderline);
 
   const dispatch = useDispatch();
 
   const data = props.data;
+  const Icon = props.Icon;
 
   const changeData = (event) => {
     underlineLogic();
@@ -58,11 +59,14 @@ function InputUnderline(props) {
   return (
     <div>
       <div className={validClass}>
+        <div className='inline-flex items-center px-3 rounded-l-lg bg-red-100 shadow-md text-gray-800 text-sm'>
+            <Icon/>
+        </div>
         <input
           ref={refInput}
           onChange={changeData}
           type={data.type}
-          className="bg-transparent border-none w-full focus:outline-none"
+          className="p-2 h-10 focus:outline-none focus:shadow-inner shadow-lg placeholder-gray-800 flex w-full rounded-none rounded-r-lg sm:text-sm border-l-2 border-red-300 bg-red-100"
           placeholder={data.placeholder}
           required
         />

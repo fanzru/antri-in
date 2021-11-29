@@ -5,6 +5,7 @@ import { selectDaftarData } from "../../redux/daftarSlice";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import { validateEmail } from "../../utils/helper/validateEmail";
+import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
 function Createaccount() {
   const [Loading, setLoading] = useState(false);
@@ -13,6 +14,11 @@ function Createaccount() {
   const [Failed, setFailed] = useState(false);
   const dataDaftar = useSelector(selectDaftarData);
 
+  const Icons = [
+    AiOutlineUser,
+    AiOutlineMail,
+    AiOutlineLock,
+  ]
   const ListInput = [
     {
       type: "text",
@@ -116,11 +122,11 @@ function Createaccount() {
   return (
     <div>
       <div className="md:grid md:grid-cols-2 gap-4 place-items-center py-28 px-5">
-        <div className="px-20 pt-12 w-full md:h-full sm:h-screen">
+        <div className="px-8 md:px-20 pt-12 w-full md:h-full sm:h-screen">
           <span className="font-bold text-xl">Create Account</span>
           <form action="" className="mt-3">
             {ListInput.map((data, id) => {
-              return <InputUnderline key={id} data={data} />;
+              return <InputUnderline key={id} data={data} Icon={Icons[id]}/>;
             })}
             {tombolSubmit()}
           </form>

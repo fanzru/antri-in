@@ -85,7 +85,7 @@ function LoginAdmin() {
           <div className="hidden md:block">
             <img className="" src="ilus-antri01.svg"></img>
           </div>
-          <div className="px-14 pt-11 md:h-full sm:h-screen">
+          <div className="px-10 pt-11 md:h-full sm:h-screen">
             <span className="text-2xl font-bold">Sign In</span>
             <form className="py-4">
               <InputEmail />
