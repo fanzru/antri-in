@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import ClipLoader from "react-spinners/ClipLoader";
 import { BsTelephone } from "react-icons/bs";
 import { useDispatch } from 'react-redux'
-import { createToast, selectToast } from '../../redux/toastSlice'
+import { createToastWarning, createToastError, selectToast } from '../../redux/toastSlice'
 import Cookies from 'universal-cookie';
 
 function JoinAntrian(props) {
@@ -31,11 +31,11 @@ function JoinAntrian(props) {
           }
         })
         .then((res) => {
-          dispatch(createToast("Selesaikan Antrian Anda"))
+          dispatch(createToastWarning("Selesaikan Antrian Anda"))
           router.push("/waiting-antrian")
         })
         .catch((e) => {
-          dispatch(createToast("Antrian anda tidaak ada"))
+          dispatch(createToastError("Antrian anda tidaak ada"))
           console.log(e)
         })
     }

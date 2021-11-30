@@ -1,7 +1,7 @@
 import router from 'next/router';
 import React,{ useState,useEffect} from 'react';
 import { useDispatch } from 'react-redux'
-import { createToast, selectToast } from '../../redux/toastSlice'
+import { createToastError, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
 import Cookies from 'universal-cookie';
 
@@ -29,7 +29,7 @@ function WaitingAntrian(props) {
     .catch((e) => {
         console.log(e)
         router.push("/")
-        dispatch(createToast("Tidak Ada Antrian"))
+        dispatch(createToastError("Tidak Ada Antrian"))
     })
   }
 
