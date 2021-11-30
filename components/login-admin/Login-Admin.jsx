@@ -72,6 +72,7 @@ function LoginAdmin() {
 
         // do some logic here if success (200 OK)
         // routing here
+        router.push("/admin-page")
       })
       .catch(function (err) {
         // do some logic if not (200 OK)

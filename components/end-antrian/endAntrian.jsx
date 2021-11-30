@@ -25,20 +25,20 @@ function EndAntrian(props) {
     ) : (
       <div>
         <div className="mt-8">
-          <p className="font-bold text-black">Ingin mengantri lagi?</p>
+          <p className="text-center font-bold text-black">Ingin mengantri lagi?</p>
         </div>
       
         <div className="flex justify-between py-2 px-4 gap-4 mt-4">
-          <div className="flex px-8 py-2 items-center justify-center bg-red-500 rounded-md hover:bg-red-600">
-            <button onClick={handleClick} className="text-white font-bold text-xs">
+          <button onClick={handleClick}  className="flex px-8 py-2 items-center justify-center bg-red-500 rounded-md hover:bg-red-600">
+            <div className="text-white font-bold text-xs">
               Ya
-            </button>
-          </div>
-          <div className="flex px-6 py-2 items-center justify-center bg-red-100 rounded-md hover:bg-red-500 hover:text-white">
-            <button onClick={handleNoClick} className="font-bold text-xs ">
+            </div>
+          </button>
+          <button onClick={handleNoClick} className="flex px-6 py-2 items-center justify-center bg-red-100 rounded-md hover:bg-red-500 hover:text-white">
+            <div  className="font-bold text-xs ">
               Tidak
-            </button>
-          </div>
+            </div>
+          </button>
         </div>
       </div>
     )
