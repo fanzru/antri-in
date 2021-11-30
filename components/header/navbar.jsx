@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowWidth } from "@react-hook/window-size/throttled";
+import { useRouter } from "next/router";
 
-function Navbar() {
+function Navbar({goto="home"|"admin"}) {
+  const router = useRouter()
   const [activeBar, setActiveBar] = useState(false);
   const width = useWindowWidth();
   useEffect(() => {
@@ -20,6 +22,14 @@ function Navbar() {
     }
   };
 
+  const handleLogo = () => {
+    if (goto == "admin") {
+      router.push("/admin-page")
+    } else {
+      router.push("/")
+    }
+  }
+
   const [view, setView] = useState("Home");
   const menus = ["Home", "About Us", "Join Us"];
   return (
@@ -28,13 +38,13 @@ function Navbar() {
         <div className="w-screen px-7 mx-auto">
           <div className="flex justify-between ">
             <div className="flex">
-              <a href="#" className="flex items-center">
+              <button onClick={handleLogo} className="flex items-center">
                 <img
                   src="../antriin-logo.svg"
                   alt=""
                   className="h-[35px] w-100% object-contain m-2"
                 />
-              </a>
+              </button>
             </div>
             <div className="w-1/4 justify-around hidden md:flex lg:flex lg:items-center">
               {menus.map((menu, index) => {
