@@ -4,14 +4,15 @@ import { useDispatch } from 'react-redux'
 import { createToast, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
 import Cookies from 'universal-cookie';
+import {useRouter} from "next/router";
 
 function WaitingAntrian(props) {
   const dispatch = useDispatch(selectToast)
-  
+  const router = useRouter()
   const [dataAntrianNow, setDataAntrianNow] = useState("")
   const [Loading, setLoading] = useState(true);
+
   const getDataAntrianNow = () => {
-    
     const cookie = new Cookies();
     const token = cookie.get("token_pengantri")
 
@@ -36,6 +37,24 @@ function WaitingAntrian(props) {
   useEffect(() => {
     getDataAntrianNow()
   }, [])
+
+  const HandleCancle = (e) => {
+    const cookie = new Cookies();
+    const token = cookie.get("token_pengantri")
+    let TOKEN = new FormData();
+    TOKEN.append('token_id', token);
+
+    axios
+      .delete(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/pengantri`, {data: TOKEN})
+      .then((res)=> {
+        const cookie = new Cookies();
+        const token = cookie.remove("token_pengantri")
+        router.push("/end-antrian")
+      })
+      .catch((e)=>{
+        console.log(e)
+      })
+  }
 
   return (
     <div>
@@ -93,7 +112,7 @@ function WaitingAntrian(props) {
           </div>
 
           <div className="flex mx-auto px-8 py-4 items-center justify-center mb-10 bg-red-500 rounded-md">
-            <button className="text-white font-semibold text-xs">
+            <button onClick={HandleCancle} className="text-white font-semibold text-xs">
               Batalkan Antrian
             </button>
           </div>

@@ -11,6 +11,7 @@
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.24.0",
     "cookie-cutter": "^0.2.0",
+    "form-data": "^4.0.0",
     "framer-motion": "^5.2.1",
     "nanoid": "^3.1.30",
     "next": "latest",

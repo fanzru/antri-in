@@ -137,7 +137,6 @@ function JoinAntrian(props) {
                 <input
                   type="text"
                   className="p-2 h-10 focus:outline-none focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100"
-                  type="number"
                   id="nohp"
                   placeholder="081326161035"
                   value={nomorHp}
