@@ -33,7 +33,7 @@ function ButtonAgain (props,{children,href}){
       
         <div className="flex justify-between py-2 px-4 gap-4 mt-4">
           <div className="flex px-8 py-2 items-center justify-center bg-red-500 rounded-md hover:bg-red-600">
-            <button href={href} onClick={handleClick} className="text-white font-bold text-xs">
+            <button onClick={handleClick} className="text-white font-bold text-xs">
               Ya
             </button>
           </div>

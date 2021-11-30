@@ -6,8 +6,10 @@ import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import { validateEmail } from "../../utils/helper/validateEmail";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 function Createaccount() {
+  const router = useRouter()
   const [Loading, setLoading] = useState(false);
   const [Valid, setValid] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -132,7 +134,7 @@ function Createaccount() {
           </form>
           <span className="text-gray-500 text-sm">
             Already have an account?{" "}
-            <a href="/login-admin" className="text-red-600">
+            <a onClick={() => {router.push("/login-admin")}} className="text-red-600">
               Log In
             </a>
           </span>

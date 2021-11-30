@@ -9,10 +9,13 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { selectLoginData } from "../../redux/loginSlice";
 import axios from "axios";
 import Cookies from 'universal-cookie';
+import { useRouter } from "next/router";
+
 
 
 function LoginAdmin() {
   const cookie = new Cookies();
+  const router = useRouter()
 
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -90,12 +93,6 @@ function LoginAdmin() {
             <form className="py-4">
               <InputEmail />
               <InputPass />
-              <a
-                className="text-right text-xs underline block font-bold pt-4"
-                href=""
-              >
-                Lupa Kata sandi?
-              </a>
               {GagalText != "" && (
                 <div className="bg-red-50 mt-2 p-3 rounded-lg">
                   <p className="text-center text-sm text-red-700 font-bold">
@@ -118,12 +115,14 @@ function LoginAdmin() {
                     </p>
                   </div>
                 ) : (
-                  <a
-                    href="/create-account"
-                    className="bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center pt-1.5"
+                  <button
+                    onClick={() => router.push("/create-account")}
+                    className="flex flex-col items-center justify-center bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center"
                   >
+                    <p>
                     Daftar
-                  </a>
+                    </p>
+                  </button>
                 )}
               </div>
             </form>
