@@ -7,6 +7,8 @@ import axios from "axios";
 import { validateEmail } from "../../utils/helper/validateEmail";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { createToastError, selectToast } from "../../redux/toastSlice";
 
 function Createaccount() {
   const router = useRouter()
@@ -15,6 +17,7 @@ function Createaccount() {
   const [Success, setSuccess] = useState(false);
   const [Failed, setFailed] = useState(false);
   const dataDaftar = useSelector(selectDaftarData);
+  const dispatch = useDispatch(selectToast)
 
   const Icons = [
     AiOutlineUser,
@@ -63,7 +66,7 @@ function Createaccount() {
       email.replace(/\s+/g, "") == "" ||
       password.replace(/\s+/g, "") == ""
     ) {
-      alert("Nama, Email, dan Password harus diisi");
+      dispatch(createToastError("Nama, Email, dan Password harus diisi"));
       return;
     }
     var bodyFormData = new FormData();

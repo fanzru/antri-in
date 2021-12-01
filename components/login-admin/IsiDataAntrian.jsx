@@ -6,9 +6,12 @@ import { trimSpace } from "../../utils/helper/trimSpace";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import Cookies from 'universal-cookie';
+import { createToastWarning, selectToast } from "../../redux/toastSlice";
+import { useDispatch } from "react-redux";
 
 function IsiDataAntrian() {
   // Cek apakah cookies valid
+  const dispatch = useDispatch(selectToast)
   const cookie = new Cookies();
   const [Nama, setNama] = useState("");
   const [Deskripsi, setDeskripsi] = useState("");
@@ -51,7 +54,7 @@ function IsiDataAntrian() {
         setProcessing(false)
         console.log(e);
         setFail(true)
-        alert("Token tidak valid, kembali ke homepage");
+        dispatch(createToastWarning("Token tidak valid, kembali ke homepage"));
         // nanti balikkin ke homepage yo
       });
   };

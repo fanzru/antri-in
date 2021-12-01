@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 // bagian isi request
 import {BsCheckLg} from "react-icons/bs"
 import ListReqAdmin from "./ListRequestAdmin";
+import { createToastWarning, selectToast } from "../../redux/toastSlice";
 
 
 function RequestAdmin(){
@@ -16,6 +17,7 @@ function RequestAdmin(){
 
   const List = useSelector(selectRequestAdmin)
   const dispatch = useDispatch(selectRequestAdmin)
+  const dispatchToast = useDispatch(selectToast)
 
   useEffect(() => {
 
@@ -32,7 +34,7 @@ function RequestAdmin(){
     ).then((res) => {
       dispatch(setDataListRequestAdmin(res.data.data))
     }).catch(e => {
-      alert("Token tidak valid, kembali ke homepage")
+      dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
       // nanti balikkin ke homepage yo
     })
   }, [])

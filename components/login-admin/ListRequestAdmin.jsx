@@ -5,12 +5,14 @@ import { setDataListRequestAdmin, selectRequestAdmin } from "../../redux/request
 import { useSelector, useDispatch } from "react-redux";
 import { removeElementList } from "../../utils/helper/removeElementList";
 import Cookies from 'universal-cookie';
+import { createToastWarning, selectToast } from "../../redux/toastSlice";
 
 function ListReqAdmin(props) {
     const dataReq = props.data;
     const idx = props.index;
     var list = useSelector(selectRequestAdmin)
     const dispatch = useDispatch(selectRequestAdmin)
+    const dispatchToast = useDispatch(selectToast)
     const cookie = new Cookies();
     var token = cookie.get("token_admin") 
     var config = {
@@ -25,10 +27,9 @@ function ListReqAdmin(props) {
             list.splice(idx, 1)
             let newList = removeElementList(list, idx)
             dispatch(setDataListRequestAdmin(newList))
-            alert("Berhasil")
         }).catch(e => {
             console.log(e)
-            alert("Token tidak valid, kembali ke homepage")
+            dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
             // nanti balikkin ke homepage yo
         })
     }
@@ -40,10 +41,9 @@ function ListReqAdmin(props) {
             console.log(res)
             let newList = removeElementList(list, idx)
             dispatch(setDataListRequestAdmin(newList))
-            alert("Berhasil")
         }).catch(e => {
             console.log(e)
-            alert("Token tidak valid, kembali ke homepage")
+            dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
             // nanti balikkin ke homepage yo
         })
     }

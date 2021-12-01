@@ -55,7 +55,6 @@ function LoginAdmin() {
     const { email, password } = dataLogin;
     if (email.replace(/\s+/g, "") == "" || password.replace(/\s+/g, "") == "") {
       dispatchToast(createToastError("Email dan Password harus diisi"))
-      alert("Masuk")
       return
     }
     setLoading(true);
