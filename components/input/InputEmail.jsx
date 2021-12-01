@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { HiOutlineMail } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setEmailLogin } from "../../redux/loginSlice";
 import { selectLoginData } from "../../redux/loginSlice";
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsTelephone } from "react-icons/bs";
 import {AiOutlineArrowRight} from "react-icons/ai"
+
 function CekAntrian(props) {
   return (
     <div className="flex flex-col mx-2 h-screen items-center justify-center">      

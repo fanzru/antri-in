@@ -1,7 +1,7 @@
 import React from "react";
-import {BsFillPersonFill, BsPlusLg} from "react-icons/bs"
+import { BsPlusLg } from "react-icons/bs"
 
-export default function AddPengatri(){
+export default function AddPengatri() {
     return (
         <div className='flex h-screen items-center justify-center'>
             <div className='w-3/4'>
@@ -19,7 +19,7 @@ export default function AddPengatri(){
                         <div className='mb-12 md:mb-0 bg-red-200 relative justify-center items-center rounded-xl shadow-lg'>
                             <div className='grid place-items-center pt-5'>
                                 <span className='font-semibold'>Antrian Saat Ini</span>
-                                <div className='pb-12 pt-2'>    
+                                <div className='pb-12 pt-2'>
                                     <span className='text-8xl font-bold'>XXX</span>
                                 </div>
                                 <div className='absolute -bottom-8'>
@@ -28,8 +28,8 @@ export default function AddPengatri(){
                             </div>
                         </div>
                     </div>
-                    
-                    <div className='bg-gray-400 md:bg-red-200 col-span-2 p-5 rounded-2xl shadow-lg'>    
+
+                    <div className='bg-gray-400 md:bg-red-200 col-span-2 p-5 rounded-2xl shadow-lg'>
                         {/* Form nama input */}
                         <div className=''>
                             <form className='md:grid md:grid-cols-2 md:gap-6' action="">
@@ -42,13 +42,13 @@ export default function AddPengatri(){
                                         </div>
                                     </div>
                                     <div className='mb-3'>
-                                        <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='Nama Pengantri'/>
+                                        <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='Nama Pengantri' />
                                     </div>
                                     <div className='mb-3 '>
-                                        <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='No. Telp Pengantri'/>
+                                        <input className='font-bold rounded-lg shadow-lg h-full w-full py-3 px-2 placeholder-black focus:outline-none' type="text" name="" id="" placeholder='No. Telp Pengantri' />
                                     </div>
                                 </div>
-                                
+
                                 <div className='mt-16 md:mt-0'>
                                     <div className='bg-white hidden md:flex flex-col justify-center items-center px-5 py-10 rounded-lg shadow-lg mb-5'>
                                         <span className='font-semibold'>NAMA ANTRIAN</span>
@@ -60,17 +60,17 @@ export default function AddPengatri(){
                                         <button className='md:text-sm flex justify-between items-center w-full bg-white p-3 rounded-lg shadow-md'>
                                             <span className='md:order-last font-bold'>Tambah Antrian Manual</span>
                                             <div className='flex items-center justify-center'>
-                                                <BsPlusLg/>
-                                            </div>    
+                                                <BsPlusLg />
+                                            </div>
                                         </button>
                                         <button className='hidden md:flex w-20 bg-red-500 items-center justify-center rounded-md shadow-md'>
                                             <img src="rounded-x-button.svg" alt="x" srcset="" className='h-full p-2' />
                                         </button>
                                     </div>
-                                   
+
                                 </div>
-                                
-                                
+
+
                             </form>
                             {/* <span className='font-semibold'>Nama Panjang</span>
                             <div className='flex gap-2'>
@@ -89,7 +89,7 @@ export default function AddPengatri(){
                         </div> */}
                     </div>
                 </div>
-                
+
             </div>
         </div>
     )

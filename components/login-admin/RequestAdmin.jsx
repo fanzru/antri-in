@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect } from "react";
 // import Navbar from "../header/navbar";
 // import Backgound from "../background/backgound";
 import axios from "axios";
@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Cookies from 'universal-cookie';
 
 // bagian isi request
-import {BsCheckLg} from "react-icons/bs"
 import ListReqAdmin from "./ListRequestAdmin";
 import { createToastWarning, selectToast } from "../../redux/toastSlice";
 

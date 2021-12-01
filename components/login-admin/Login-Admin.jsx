@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import Navbar from "../header/navbar";
 // import Backgound from "../background/backgound";
 import { HiArrowNarrowRight } from "react-icons/hi";

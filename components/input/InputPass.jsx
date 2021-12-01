@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { HiOutlineLockClosed } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoginData, setEmailLogin, setPasswordLogin } from "../../redux/loginSlice";
+import { selectLoginData, setPasswordLogin } from "../../redux/loginSlice";
 
 function InputPass() {
   // Nyiapin aja untuk jaga-jaga kalau mau validasi
