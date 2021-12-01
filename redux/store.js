@@ -3,22 +3,16 @@ import loginSlice from "./loginSlice";
 import endAntrianSlice from "./endAntriSlice"
 import requestAdminSlice from "./requestAdmin"
 import toastSlice from "./toastSlice";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
-const { configureStore, combineReducers, getDefaultMiddleware } = require("@reduxjs/toolkit");
-
-export const Store = configureStore({
+export const GlobalStore = configureStore({
   reducer: combineReducers({
+    toast: toastSlice,
     form_daftar: daftarSlice,
     form_login: loginSlice,
     end_antrian: endAntrianSlice,
     request_admin: requestAdminSlice
-  }),
-});
-
-export const GlobalStore = configureStore({
-  reducer: combineReducers({
-    toast: toastSlice
   })
 })
 
-export default { Store, GlobalStore };
+export default { GlobalStore };

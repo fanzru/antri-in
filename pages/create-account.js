@@ -7,13 +7,11 @@ import { Store } from "../redux/store";
 
 function CreateAccout() {
   return (
-    <Provider store={Store}>
       <div className='font-poppins'>
         <Navbar />
         <Backgound />
         <Createaccount />
       </div>
-    </Provider>
   );
 }
 

@@ -7,14 +7,11 @@ import { Store } from "../redux/store";
 
 function request_admin() {
     return (
-        <Provider store={Store}>
-            <div>
-                <Navbar/>
-                <Backgound/>
-                <RequestAdmin />
-            </div>
-        </Provider>
-
+        <div>
+            <Navbar />
+            <Backgound />
+            <RequestAdmin />
+        </div>
     )
 }
 

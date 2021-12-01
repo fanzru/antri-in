@@ -89,7 +89,7 @@ function Home(props) {
             </div>
 
             <div className="flex flex-col py-5 overflow-y-auto h-80 px-4 mt-5 ">
-              {dataAntrian.map((antrian, index) => {
+              {dataAntrian.length != 0 ? dataAntrian.map((antrian, index) => {
                 return (
                   <button key={index} onClick={ ()=> router.push(`/join-antrian/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
                     <div className="font-reguler text-sm">{antrian.nama}</div>
@@ -102,7 +102,7 @@ function Home(props) {
                     </div>
                   </button>
                 );
-              })}
+              }) : <div className="text-center select-none">Antrian Tidak Tersedia</div>}
             </div>
           </div>
         </div>

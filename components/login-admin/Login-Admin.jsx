@@ -4,18 +4,21 @@ import React, { useEffect, useState } from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import InputEmail from "../input/InputEmail";
 import InputPass from "../input/InputPass";
-import { useSelector } from "react-redux";
+import { useSelector,  useDispatch } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
-import { selectLoginData } from "../../redux/loginSlice";
+import { selectLoginData, setEmailLogin, setPasswordLogin } from "../../redux/loginSlice";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import { useRouter } from "next/router";
+import { createToastError, selectToast } from "../../redux/toastSlice";
 
 
 
 function LoginAdmin() {
   const cookie = new Cookies();
   const router = useRouter()
+  const dispatch = useDispatch(selectLoginData)
+  const dispatchToast = useDispatch(selectToast)
 
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -49,12 +52,13 @@ function LoginAdmin() {
   const handleMasuk = (e) => {
     e.preventDefault();
     setGagalText("");
-    setLoading(true);
     const { email, password } = dataLogin;
     if (email.replace(/\s+/g, "") == "" || password.replace(/\s+/g, "") == "") {
-      alert("Email dan Password harus diisi");
-      return;
+      dispatchToast(createToastError("Email dan Password harus diisi"))
+      alert("Masuk")
+      return
     }
+    setLoading(true);
     var bodyFormData = new FormData();
     bodyFormData.append("email", email);
     bodyFormData.append("password", password);
@@ -69,7 +73,8 @@ function LoginAdmin() {
         setSuccess(true);
         let token = response.data.data.token
         cookie.set("token_admin", token)
-
+        dispatch(setEmailLogin(""))
+        dispatch(setPasswordLogin(""))
         // do some logic here if success (200 OK)
         // routing here
         router.push("/admin-page")
@@ -121,7 +126,7 @@ function LoginAdmin() {
                     className="flex flex-col items-center justify-center bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center"
                   >
                     <p>
-                    Daftar
+                      Daftar
                     </p>
                   </button>
                 )}
