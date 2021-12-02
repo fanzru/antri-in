@@ -31,7 +31,23 @@ function Navbar({goto="home"|"admin"}) {
   }
 
   const [view, setView] = useState("Home");
-  const menus = ["Home", "About Us", "Join Us"];
+
+
+
+  const menus = [
+    {
+      menu: "Home",
+      href: '/'
+    },
+    {
+      menu: "About",
+      href: '/about'
+    },
+    {
+      menu: "Join Us",
+      href: '/'
+    }
+  ];
   return (
     <>
       <nav className="bg-red-100 fixed">
@@ -49,13 +65,9 @@ function Navbar({goto="home"|"admin"}) {
             <div className="w-1/4 justify-around hidden md:flex lg:flex lg:items-center">
               {menus.map((menu, index) => {
                 return (
-                  <button key={index}
-                    className="flex items-center hover:font-semibold transition-all "
-                    onClick={() => setView(menu)}
-                  >
-                    {" "}
-                    {menu}{" "}
-                  </button>
+                  <a key={index} className="flex items-center hover:font-semibold transition-all " href={menu.href}>
+                    {menu.menu}{" "}
+                  </a>
                 );
               })}
             </div>
@@ -94,10 +106,10 @@ function Navbar({goto="home"|"admin"}) {
                   return (
                     <button key={index}
                       className="block py-2 px-4 text-sm container rounded-md hover:bg-red-400 hover:text-white"
-                      onClick={() => setView(menu)}
+                      href={menu.href}
                     >
                       {" "}
-                      {menu}
+                      {menu.menu}
                     </button>
                   );
                 })}
