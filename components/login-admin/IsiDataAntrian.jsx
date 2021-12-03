@@ -6,8 +6,9 @@ import { trimSpace } from "../../utils/helper/trimSpace";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import Cookies from 'universal-cookie';
-import { createToastWarning, selectToast } from "../../redux/toastSlice";
+import { createToastWarning, createToastSuccess, selectToast } from "../../redux/toastSlice";
 import { useDispatch } from "react-redux";
+import router from "next/router";
 
 function IsiDataAntrian() {
   // Cek apakah cookies valid
@@ -47,15 +48,16 @@ function IsiDataAntrian() {
       )
       .then((res) => {
         setProcessing(false)
-        console.log(res.data.data)
+        dispatch(createToastSuccess("Berhasil menambahkan antrian!"));
         setSuccess(true)
+        router.push("/admin-page")
       })
       .catch((e) => {
         setProcessing(false)
-        console.log(e);
         setFail(true)
         dispatch(createToastWarning("Token tidak valid, kembali ke homepage"));
         // nanti balikkin ke homepage yo
+        router.push("/admin-page")
       });
   };
 
@@ -107,7 +109,8 @@ function IsiDataAntrian() {
           <span className="text-2xl font-bold">Isi Data Antrian</span>
           <form action="" className="pt-5">
             <label htmlFor="" className="block text-sm text-gray-500 mb-2">
-              Nama Antrian
+              <p>Nama Antrian</p>
+              <p className="flex flex-row text-[10px]"><p className="text-red-500">*</p> Nama Antrian tidak boleh sama dengan antrian lainnya</p>
             </label>
             <input
               type="text"
