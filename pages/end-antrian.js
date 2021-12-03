@@ -5,11 +5,11 @@ import EndAntrian from "../components/end-antrian/endAntrian"
 
 function calledAntrian() {
     return (
-        <div className='font-poppins'>
+        <>
             <Navbar/>
             <Backgound/>
             <EndAntrian/>
-        </div>
+        </>
     )
 }
 

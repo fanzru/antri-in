@@ -6,11 +6,11 @@ import Navbar from "../components/header/navbar";
 
 function adminPage(){
     return (
-        <div className='font-poppins'>
+        <>
             <Navbar/>
             <Backgound/>
             <AdminPage/>
-        </div>
+        </>
     )
 }
 

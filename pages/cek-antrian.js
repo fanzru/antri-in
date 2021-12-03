@@ -5,11 +5,11 @@ import CekAntrian from "../components/cek-antrian/cekAntrian";
 
 function cekAntrian() {
     return (
-        <div className='font-poppins'>
+        <>
             <Navbar/>
             <Backgound/>
             <CekAntrian/>
-        </div>
+        </>
     )
 }
 

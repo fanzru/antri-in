@@ -6,11 +6,11 @@ import InformationAntrian from "../components/login-admin/InformationAntrian";
 
 function informationAntrian(){
     return (
-        <div>
+        <>
             <Navbar/>
             <Backgound/>
             <InformationAntrian/>
-        </div>
+        </>
     )
 }
 

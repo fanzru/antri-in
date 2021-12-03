@@ -5,11 +5,11 @@ import Navbar from "../components/header/navbar";
 
 function AddAntrian(){
     return (
-        <div className='font-poppins'>
+        <>
             <Navbar/>
             <Backgound/>
             <IsiDataAntrian/>
-        </div>
+        </>
     )
 }
 
