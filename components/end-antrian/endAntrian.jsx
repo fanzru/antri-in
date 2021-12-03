@@ -1,7 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import { useRouter } from 'next/router'
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+import { createToastError, createToastWarning, selectToast } from '../../redux/toastSlice'
+import axios from "axios";
+import Cookies from 'universal-cookie';
+import { useRouter } from "next/router";
 
 function EndAntrian(props) {
+  const dispatch = useDispatch(selectToast)
+  const [dataAntrianNow, setDataAntrianNow] = useState("")
+  const [Loading, setLoading] = useState(true);
+  const cookie = new Cookies();
+  const token = cookie.get("token_pengantri")
 
   const router = useRouter()
   const [AntriAgain, setAntriAgain] = useState(false)
@@ -13,6 +22,40 @@ function EndAntrian(props) {
     e.preventDefault()
     setAntriAgain(true)
   }
+
+  const getDataAntrianNow = async () => {
+    try {
+      await axios
+        .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/trace`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        .then((res) => {
+          const data = res.data.data
+          setDataAntrianNow(data)
+          setLoading(false)
+          if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
+            router.push("/called-antrian")
+          } else {
+            dispatch(createToastWarning("Anda masih dalam antrian"))
+            router.push("/waiting-antrian")
+          }
+        })
+        .catch((e) => {
+        })
+    } catch (e) {
+      dispatch(createToastError("Tidak bisa melihat antrian terbaru"))
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(getDataAntrianNow, 3000)
+    return function cleanup() {
+      clearInterval(interval)
+    };
+    // Melakukan cek antrian setiap 1 detik
+  }, [])
 
   const ButtonAgain = () => {
     return AntriAgain ? (
