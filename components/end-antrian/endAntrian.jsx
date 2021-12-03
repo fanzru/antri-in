@@ -37,9 +37,11 @@ function EndAntrian(props) {
           setLoading(false)
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
             router.push("/called-antrian")
-          } else {
+          } else if (data.antrian.curr_antrian < data.no_antrian_pengantri) {
             dispatch(createToastWarning("Anda masih dalam antrian"))
             router.push("/waiting-antrian")
+          } else {
+            cookie.remove("token_pengantri")
           }
         })
         .catch((e) => {

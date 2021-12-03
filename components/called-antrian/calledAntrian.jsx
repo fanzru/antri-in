@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { createToastWarning, selectToast } from '../../redux/toastSlice'
+import { createToastWarning, createToastError, createToastSuccess, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import {useRouter} from "next/router";
@@ -53,7 +53,10 @@ function CalledAntrian() {
         router.push("/end-antrian")
       })
       .catch(err => {
+        console.log(err)
         dispatch(createToastError("Tidak dapat membatalkan atrian, harap hubungi petugas antrian"))
+        cookie.remove("token_pengantri")
+        router.push("/")
       })
   }
 

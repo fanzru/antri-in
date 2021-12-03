@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { createToastError, createToastSuccess, selectToast } from '../../redux/toastSlice'
+import { createToastError, createToastSuccess, createToastWarning, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import { useRouter } from "next/router";
@@ -26,8 +26,11 @@ function WaitingAntrian() {
           setDataAntrianNow(data)
           setLoading(false)
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
-            dispatch(createToastWarning("Antrian anda sudah selesai"))
             router.push("/called-antrian")
+          } else if (data.antrian.curr_antrian > data.no_antrian_pengantri) {
+            cookie.remove("token_pengantri")
+            dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
+            router.push("/")
           }
         })
         .catch((e) => {
