@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import "../public/styles.css"
 import MiddlewareComponent from "../components/middleware/MiddlewareComponent";
 
 function MyApp({ Component, pageProps }) {

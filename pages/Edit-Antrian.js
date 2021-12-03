@@ -7,11 +7,11 @@ import Navbar from "../components/header/navbar";
 
 function EditAntrian(){
     return (
-        <div>
+        <>
             <Navbar/>
             <Backgound/>
             <EditDataAntrian/>
-        </div>
+        </>
     )
 }
 

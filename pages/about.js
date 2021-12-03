@@ -5,11 +5,11 @@ import AboutYaUdahlah from "../components/about/AboutYaUdahlah";
 
 function About(){
     return (
-        <div>
+        <>
             <Navbar/>
             <AboutYaUdahlah/>
             <BackgroundAbout/>
-        </div>
+        </>
     )
 }
 

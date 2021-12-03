@@ -7,11 +7,11 @@ import { Store } from "../redux/store";
 
 function loginAdmin() {
   return (
-      <div className="font-poppins">
+      <>
         <Navbar/>
         <Backgound/>
         <LoginAdmin />
-      </div>
+      </>
   );
 }
 

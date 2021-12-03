@@ -5,11 +5,11 @@ import Navbar from "../components/header/navbar";
 
 function test(){
     return (
-        <div>
+        <>
             <Navbar/>
             <Backgound/>
             <AddPengatri/>
-        </div>
+        </>
     )
 }
 

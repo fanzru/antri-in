@@ -5,11 +5,11 @@ import PindaiQRcode from "../components/pindaiQR/PindaiQRcode";
 
 function pindaiQR(){
     return (
-        <div>
+        <>
             <Navbar/>
             <Backgound/>
             <PindaiQRcode/>
-        </div>
+        </>
     )
 }
 

@@ -8,16 +8,14 @@ import { validateEmail } from "../../utils/helper/validateEmail";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { createToastError, selectToast } from "../../redux/toastSlice";
+import { createToastError, createToastSuccess, createToastWarning, selectToast } from "../../redux/toastSlice";
 
 function Createaccount() {
   const router = useRouter()
   const [Loading, setLoading] = useState(false);
-  const [Valid, setValid] = useState(false);
-  const [Success, setSuccess] = useState(false);
-  const [Failed, setFailed] = useState(false);
   const dataDaftar = useSelector(selectDaftarData);
   const dispatch = useDispatch(selectToast)
+  const [GagalText, setGagalText] = useState("");
 
   const Icons = [
     AiOutlineUser,
@@ -42,21 +40,6 @@ function Createaccount() {
     },
   ];
 
-  useEffect(() => {
-    var { nama, email, password } = dataDaftar;
-    if (
-      nama.replace(/\s+/g, "") != "" &&
-      email.replace(/\s+/g, "") != "" &&
-      password.replace(/\s+/g, "") != "" &&
-      validateEmail(email) &&
-      password.length >= 6
-    ) {
-      setValid(true);
-    } else {
-      setValid(false);
-    }
-  }, [dataDaftar]);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -66,7 +49,7 @@ function Createaccount() {
       email.replace(/\s+/g, "") == "" ||
       password.replace(/\s+/g, "") == ""
     ) {
-      dispatch(createToastError("Nama, Email, dan Password harus diisi"));
+      dispatch(createToastWarning("Nama, Email, dan Password harus diisi"));
       return;
     }
     var bodyFormData = new FormData();
@@ -80,48 +63,30 @@ function Createaccount() {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
-        console.log(response);
-        if (response.status == 200) {
-          setSuccess(true);
-        } else {
-          setFailed(true);
-        }
+        dispatch(createToastSuccess("Berhasil mendaftarkan akun, menunggu persetujuan admin"))
+        router.push("/login-admin")
       })
-      .catch(function (response) {
-        setFailed(true);
+      .catch(function (err) {
+        var res = err.response.data;
+        setGagalText(res.message);
+        setLoading(false);
       });
   };
 
   const tombolSubmit = () => {
-    return Failed ? (
-      <div className="flex p-3 bg-red-300 content-center items-center justify-center rounded-lg h-16 md:h-12 w-full select-none text-white font-bold my-4">
-        <p className="text-center">
-          Failed Creating Account, Please Contact Admin
-        </p>
-      </div>
-    ) : Success ? (
-      <div className="flex p-3 bg-red-300 content-center items-center justify-center rounded-lg h-16 md:h-12 w-full select-none text-white font-bold my-4">
-        <p className="text-center">
-          Success Creating Account, Waiting For Admin Approval
-        </p>
-      </div>
-    ) : Loading ? (
+    return  Loading ? (
       <div className="flex bg-red-300 content-center items-center justify-center rounded-lg gap-2 h-10 w-full select-none text-white font-bold my-4">
         <ClipLoader size={23} color="white" />
         <p className="text-center">Processing</p>
       </div>
-    ) : Valid ? (
+    ) : (
       <button
         onClick={handleSubmit}
         className="bg-red-600 items-center rounded-lg h-10 w-full text-white font-bold my-4"
       >
         Create Account
       </button>
-    ) : (
-      <div className="flex bg-red-300 content-center items-center justify-center rounded-lg h-10 w-full select-none text-white font-bold my-4">
-        <p className="text-center">Create Account</p>
-      </div>
-    );
+    ) 
   };
 
   return (
@@ -131,13 +96,28 @@ function Createaccount() {
           <span className="font-bold text-xl">Create Account</span>
           <form action="" className="mt-3">
             {ListInput.map((data, id) => {
-              return <InputUnderline key={id} data={data} Icon={Icons[id]}/>;
+              return <InputUnderline key={id} data={data} Icon={Icons[id]} />;
             })}
-            {tombolSubmit()}
+            {GagalText != "" && (
+                <div className="bg-red-50 mt-2 p-3 rounded-lg">
+                  <p className="text-center text-sm text-red-700 font-bold">
+                    {GagalText}
+                  </p>
+                  <p className="text-center text-sm text-red-400">
+                    Please Contact Admin If You're Not Sure
+                  </p>
+                </div>
+              )}
+            <button
+              onClick={handleSubmit}
+              className="bg-red-600 items-center rounded-lg h-10 w-full text-white font-bold my-4"
+            >
+              Create Account
+            </button>
           </form>
           <span className="text-gray-500 text-sm">
             Already have an account?{" "}
-            <a onClick={() => {router.push("/login-admin")}} className="text-red-600">
+            <a onClick={() => { router.push("/login-admin") }} className="cursor-pointer text-red-600">
               Log In
             </a>
           </span>

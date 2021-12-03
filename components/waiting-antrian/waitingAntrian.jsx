@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { createToastError, createToastSuccess, selectToast } from '../../redux/toastSlice'
+import { createToastError, createToastSuccess, createToastWarning, selectToast } from '../../redux/toastSlice'
 import axios from "axios";
 import Cookies from 'universal-cookie';
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
-function WaitingAntrian(props) {
+function WaitingAntrian() {
   const dispatch = useDispatch(selectToast)
   const router = useRouter()
   const [dataAntrianNow, setDataAntrianNow] = useState("")
-  const [Interval, setIntervalSave] = useState(null)
   const [Loading, setLoading] = useState(true);
   const cookie = new Cookies();
   const token = cookie.get("token_pengantri")
 
   const getDataAntrianNow = async () => {
-    console.log("Test masuk")
     try {
       await axios
         .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/trace`, {
@@ -27,11 +25,17 @@ function WaitingAntrian(props) {
           const data = res.data.data
           setDataAntrianNow(data)
           setLoading(false)
+          if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
+            router.push("/called-antrian")
+          } else if (data.antrian.curr_antrian > data.no_antrian_pengantri) {
+            cookie.remove("token_pengantri")
+            dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
+            router.push("/")
+          }
         })
         .catch((e) => {
-          console.log(e)
           router.push("/")
-          dispatch(createToastError("Tidak Ada Antrian"))
+          dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
         })
     } catch (e) {
       dispatch(createToastError("Tidak bisa melihat antrian terbaru"))
@@ -45,7 +49,6 @@ function WaitingAntrian(props) {
       .then(res => {
         dispatch(createToastSuccess("Berhasil membatalkan antrain"))
         cookie.remove("token_pengantri")
-        setIntervalSave(clearInterval(Interval))
         router.push("/end-antrian")
       })
       .catch(err => {
@@ -54,9 +57,9 @@ function WaitingAntrian(props) {
   }
 
   useEffect(() => {
-    setIntervalSave(setInterval(getDataAntrianNow, 3000))
-    return () => {
-      setIntervalSave(clearInterval(Interval));
+    const interval = setInterval(getDataAntrianNow, 3000)
+    return function cleanup() {
+      clearInterval(interval)
     };
     // Melakukan cek antrian setiap 1 detik
   }, [])

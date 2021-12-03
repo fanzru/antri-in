@@ -5,11 +5,11 @@ import CalledAntrian from "../components/called-antrian/calledAntrian"
 
 function calledAntrian() {
     return (
-        <div className='font-poppins'>
+        <>
             <Navbar/>
             <Backgound/>
             <CalledAntrian/>
-        </div>
+        </>
     )
 }
 
