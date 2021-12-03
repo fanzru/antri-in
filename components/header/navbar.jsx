@@ -104,13 +104,13 @@ function Navbar({goto="home"|"admin"}) {
               >
                 {menus.map((menu, index) => {
                   return (
-                    <button key={index}
-                      className="block py-2 px-4 text-sm container rounded-md hover:bg-red-400 hover:text-white"
+                    <a key={index}
+                      className="block py-2 px-4 text-sm text-center container rounded-md hover:bg-red-400 hover:text-white"
                       href={menu.href}
                     >
                       {" "}
                       {menu.menu}
-                    </button>
+                    </a>
                   );
                 })}
               </motion.div>

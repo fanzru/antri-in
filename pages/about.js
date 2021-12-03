@@ -1,14 +1,14 @@
 import React from "react";
-import Backgound from "../components/background/backgound";
+import BackgroundAbout from "../components/background/backgroundAbout";
 import Navbar from "../components/header/navbar";
-import AboutYaUdahlah from "../components/about/aboutYaUdahlah";
+import AboutYaUdahlah from "../components/about/AboutYaUdahlah";
 
 function About(){
     return (
         <div>
             <Navbar/>
             <AboutYaUdahlah/>
-            <Backgound/>
+            <BackgroundAbout/>
         </div>
     )
 }
