@@ -120,14 +120,15 @@ function LoginAdmin() {
                     </p>
                   </div>
                 ) : (
-                  <button
-                    onClick={() => router.push("/create-account")}
+                  <a
+                    // onClick={() => {router.push("/create-account")}}
+                    href="/create-account" // Ini segera diubah nanti yaa
                     className="flex flex-col items-center justify-center bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center"
                   >
                     <p>
                       Daftar
                     </p>
-                  </button>
+                  </a>
                 )}
               </div>
             </form>

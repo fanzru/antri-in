@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 // bagian isi request
 import ListReqAdmin from "./ListRequestAdmin";
 import { createToastWarning, selectToast } from "../../redux/toastSlice";
+import router from "next/router";
 
 
 function RequestAdmin(){
@@ -33,7 +34,8 @@ function RequestAdmin(){
     ).then((res) => {
       dispatch(setDataListRequestAdmin(res.data.data))
     }).catch(e => {
-      dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
+      dispatchToast(createToastWarning("Token tidak valid, kembali ke dashbaord"))
+      router.push("/admin-page")
       // nanti balikkin ke homepage yo
     })
   }, [])
