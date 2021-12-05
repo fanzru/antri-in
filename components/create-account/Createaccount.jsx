@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { selectDaftarData } from "../../redux/daftarSlice";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
-import { validateEmail } from "../../utils/helper/validateEmail";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
@@ -40,7 +39,7 @@ function Createaccount() {
     },
   ];
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
     const { nama, email, password } = dataDaftar;
@@ -108,12 +107,7 @@ function Createaccount() {
                   </p>
                 </div>
               )}
-            <button
-              onClick={handleSubmit}
-              className="bg-red-600 items-center rounded-lg h-10 w-full text-white font-bold my-4"
-            >
-              Create Account
-            </button>
+            {tombolSubmit()}
           </form>
           <span className="text-gray-500 text-sm">
             Already have an account?{" "}

@@ -9,7 +9,7 @@ function DescriptionAntrian(props) {
       <div className="font-bold">Deskripsi :</div>
       <div>{data.deskripsi}</div>
       <div className="font-bold">Jumlah antrian   : </div>
-      <div>{data.max_antrian}</div>
+      <div>{data.max_antrian - data.curr_antrian}</div>
     </div>
   );
 }
