@@ -4,6 +4,7 @@ import { createToastError, createToastWarning, selectToast } from '../../redux/t
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import { useRouter } from "next/router";
+import Image from 'next/image'
 
 function EndAntrian(props) {
   const dispatch = useDispatch(selectToast)
@@ -98,11 +99,10 @@ function EndAntrian(props) {
           </div>
           
           <div className="mt-6">
-            <img src="ilus-antrian-selesai.svg" alt="" />
+            <Image src="/ilus-antrian-selesai.svg" height={239} width={255} />
+            {/* <img src="ilus-antrian-selesai.svg" alt="" /> */}
           </div>
           <ButtonAgain href={"/"} />
-          
-          
         </div>
       </div>
     </div>

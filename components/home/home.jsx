@@ -5,6 +5,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { MdOutlineSearch } from "react-icons/md";
 import { useRouter } from 'next/router'
 import axios from "axios";
+import Image from 'next/image'
 
 function Home(props) {
   const [dataAntrian, setAntrian] = useState([]);
@@ -47,7 +48,8 @@ function Home(props) {
         <Navbar />
         <div className="container mx-auto mt-12 px-7 md:flex md:justify-between  ">
           <div className="flex flex-col mb-10">
-            <img src="antriin-ilus.svg" alt="Ilustrator Antriin" />
+            <Image src="/antriin-ilus.svg" className="m-2" height={408.94} width={584} />
+            {/* <img src="antriin-ilus.svg" alt="Ilustrator Antriin" /> */}
             <div className="flex flex-col">
               <h1 className="mt-3 flex justify-center font-semibold text-2xl text-red-400">
                 {" "}

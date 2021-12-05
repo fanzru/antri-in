@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowWidth } from "@react-hook/window-size/throttled";
 import { useRouter } from "next/router";
+import Image from 'next/image'
 
 function Navbar({goto="home"|"admin"}) {
   const router = useRouter()
@@ -55,11 +56,12 @@ function Navbar({goto="home"|"admin"}) {
           <div className="flex justify-between ">
             <div className="flex">
               <button onClick={handleLogo} className="flex items-center">
-                <img
+                <Image src="/antriin-logo.svg" className="m-2" height={35} width="100%" />
+                {/* <img
                   src="../antriin-logo.svg"
                   alt=""
                   className="h-[35px] w-100% object-contain m-2"
-                />
+                /> */}
               </button>
             </div>
             <div className="w-1/4 justify-around hidden md:flex lg:flex lg:items-center">

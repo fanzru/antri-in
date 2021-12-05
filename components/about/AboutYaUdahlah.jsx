@@ -90,7 +90,7 @@ function AboutYaUdahlah(props) {
             </div>
             :
             <div className="flex flex-col h-screen mx-10 justify-center text-gray-500">
-              <p className="font-poppins text-5xl font-thin font-extrabold"> Yaudahlah </p>
+              <p className="font-poppins text-5xl font-extrabold"> Yaudahlah </p>
               <p className="font-poppins text-5xl font-thin"> Team </p>
               <p className="mt-4 mb-5 font-poppins text-base font-thin"> CONTACT US : </p>
               {members.map((member,index)=>{

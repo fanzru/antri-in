@@ -2,13 +2,15 @@ import React from "react";
 // import Navbar from "../header/navbar";
 // import Backgound from "../background/backgound";
 // import { HiArrowNarrowRight } from "react-icons/hi";
+import Image from "next/image"
+import { ReactComponent as BrandIcon } from "../../public/ilus-antri01.svg";
 
 function EditDataAntrian(){
     return (
-        <div>
+        <div className="fixed w-screen h-screen">
             <div className='md:grid md:grid-cols-5 place-items-center py-28 pl-10 pr-5'>
                 <div className="h-full md:col-span-3 hidden md:block">
-                    <img src="ilus-antri01.svg" alt="ilustrasi" />
+                    <Image src="/ilus-antri01.svg" height={350} width={600} />
                 </div>
                 <div className="md:col-span-2 px-5 md:px-20 pt-11 w-full md:h-full">
                     <span className="text-2xl font-bold">Edit Data Antrian</span>

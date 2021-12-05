@@ -8,6 +8,7 @@ import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { createToastError, createToastSuccess, createToastWarning, selectToast } from "../../redux/toastSlice";
+import Image from 'next/image'
 
 function Createaccount() {
   const router = useRouter()
@@ -117,7 +118,7 @@ function Createaccount() {
           </span>
         </div>
         <div className="hidden md:block">
-          <img src="ilus-daftar-antri.svg" alt="ilustrasi" />
+          <Image src="/ilus-daftar-antri.svg" height={350} width={600} />
         </div>
       </div>
     </div>
