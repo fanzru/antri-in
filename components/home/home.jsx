@@ -49,10 +49,10 @@ function Home(props) {
           <div className="flex flex-col mb-10">
             <img src="antriin-ilus.svg" alt="Ilustrator Antriin" />
             <div className="flex flex-col">
-              <heading1 className="mt-3 flex justify-center font-semibold text-2xl text-red-400">
+              <h1 className="mt-3 flex justify-center font-semibold text-2xl text-red-400">
                 {" "}
                 Antri.in
-              </heading1>
+              </h1>
               <p className="text-sm text-center mt-2 font-light">
                 Antriin merupakan sebuah webapps untuk menbuat dan mengikuti
                 antrian jadi lebih mudah dan menyenangkan
@@ -96,7 +96,7 @@ function Home(props) {
                     <div className="flex justify-between items-center">
                       <div className="mx-3 font-bold items-center text-sm">
                         {" "}
-                        {antrian.max_antrian}{" "}
+                        {antrian.max_antrian - antrian.curr_antrian}{" "}
                       </div>
                       <BsFillPeopleFill />
                     </div>

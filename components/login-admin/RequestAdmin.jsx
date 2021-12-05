@@ -28,6 +28,13 @@ function RequestAdmin(){
     let config = {
       headers: { Authorization: `Bearer ${token}` }
     }
+    const role = ""
+    if (token) {
+      role = JSON.parse(atob(token.split('.')[1]))["role"]
+    }
+    if (role != "super") {
+      router.push("/admin-page")
+    }
 
     axios.get(
       `${process.env.NEXT_PUBLIC_HOSTNAME}/api/admin/request`, config
