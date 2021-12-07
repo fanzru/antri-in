@@ -17,6 +17,7 @@ function EditDataAntrian(props){
     const [deskripsi,setDeskripsi] = useState("")
     const [nama,setNama] = useState("")
 
+    
     const handleClick = (e) => {
       const id = props.data.id;
       e.preventDefault()
