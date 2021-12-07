@@ -10,7 +10,7 @@ import Cookies from 'universal-cookie';
 
 
 function EditDataAntrian(props){
-    const id = props.data.id;
+    
     const cookie = new Cookies()
   
     const router = useRouter()
@@ -18,6 +18,7 @@ function EditDataAntrian(props){
     const [nama,setNama] = useState("")
 
     const handleClick = (e) => {
+      const id = props.data.id;
       e.preventDefault()
       var token = cookie.get("token_admin");
       var config = {
