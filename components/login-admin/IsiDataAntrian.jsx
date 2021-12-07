@@ -40,6 +40,7 @@ function IsiDataAntrian() {
     var bodyFormData = new FormData();
     bodyFormData.append("nama", Nama);
     bodyFormData.append("deskripsi", Deskripsi);
+    
     axios
       .post(
         `${process.env.NEXT_PUBLIC_HOSTNAME}/api/admin/antrian`,

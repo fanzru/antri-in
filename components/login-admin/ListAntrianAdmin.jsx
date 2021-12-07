@@ -5,8 +5,9 @@ import Modal, { DefaultModalData } from '../modal/Modal'
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { createToastError, createToastSuccess, selectToast } from '../../redux/toastSlice';
-
+import {useRouter} from "next/router";
 function ListAntrianAdmin(props) {
+    const router = useRouter()
     const cookie = new Cookies();
     let token = cookie.get("token_admin")
     const role = ""
@@ -44,7 +45,7 @@ function ListAntrianAdmin(props) {
         setModalData(modalData)
         setShowModal(true)
       }
-
+      
     return (
         <>
             <Modal modalData={modalData} show={ShowModal} />
@@ -52,7 +53,7 @@ function ListAntrianAdmin(props) {
                 <div className="flex md:px-8 px-4 py-8 justify-between h-20 place-items-center bg-red-400 rounded-full md:rounded-3xl shadow-xl">
                     <span className="font-semibold text-sm w-full mr-10">{data.nama}</span>
                     <div className="flex gap-2 h-10 md:gap-8">
-                        {(role == "super") ? <button className="bg-white rounded-lg inline-flex items-center">
+                        {(role == "super") ? <button className="bg-white rounded-lg inline-flex items-center" onClick={()=>{router.push(`/admin/edit/${data._id}`)}}>
                             <div
                                 className='font-bold flex gap-3 px-2'
                             >

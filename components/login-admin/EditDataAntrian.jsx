@@ -1,11 +1,54 @@
-import React from "react";
+import React,{useState} from "react";
 // import Navbar from "../header/navbar";
 // import Backgound from "../background/backgound";
 // import { HiArrowNarrowRight } from "react-icons/hi";
 import Image from "next/image"
 import { ReactComponent as BrandIcon } from "../../public/ilus-antri01.svg";
+import axios from "axios";
+import {useRouter} from "next/router";
+import Cookies from 'universal-cookie';
 
-function EditDataAntrian(){
+
+function EditDataAntrian(props){
+    const id = props.data.id;
+    const cookie = new Cookies()
+  
+    const router = useRouter()
+    const [deskripsi,setDeskripsi] = useState("")
+    const [nama,setNama] = useState("")
+
+    const handleClick = (e) => {
+      e.preventDefault()
+      var token = cookie.get("token_admin");
+      var config = {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+
+      var bodyFormData = new FormData();
+      bodyFormData.append("nama", nama);
+      bodyFormData.append("deskripsi", deskripsi);
+
+      if ((!nama)||(!deskripsi)){
+        // buat kalau dia inputan kosong salah satu kosong
+        // suruh lengkapin aja toastnya
+        console.log("gaboleh disubmite")
+      } else{
+        axios
+        .put(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/admin/antrian?id=${id}`,
+        bodyFormData,
+        config)
+        .then((res)=>{
+          router.push("/admin-page")
+        })
+        .catch((err) =>{
+          // antrian edit gagal tampilkan toast
+          console.log(err)
+          //router.push("/admin-page")
+        })
+      }
+      
+
+    }
     return (
         <div className="fixed w-screen h-screen">
             <div className='md:grid md:grid-cols-5 place-items-center py-28 pl-10 pr-5'>
@@ -25,21 +68,26 @@ function EditDataAntrian(){
                             id="" 
                             placeholder="Masukkan Nama Antrian"
                             className='block w-full bg-red-200 rounded-lg shadow-lg placeholder-gray-600 p-3 mb-3'
+                            onChange={(e) => setNama(e.target.value)}
                         />
                         <label 
                             htmlFor=""
                             className="block text-sm text-gray-500 mb-2"
                         >Deskripsi Antrian</label>
                         <textarea 
-                            name="" 
+                            name="deskripsi" 
+                            type="text"
                             id="" 
                             placeholder='Masukkan Deskripsi Antrian'
                             className='resize-none h-32 block w-full bg-red-200 rounded-lg shadow-lg placeholder-gray-600 p-3'
+                            onChange={(e) => setDeskripsi(e.target.value)}
+                            value={deskripsi}
                         ></textarea>
                         <div className='flex items-center justify-center mt-10'>
                             <button 
                                 type="submit"
                                 className="flex items-center justify-center px-6 py-2 bg-red-500 rounded-lg h-10 w-28 text-white"
+                                onClick={handleClick}
                             >Ubah
                             </button>
                         </div>

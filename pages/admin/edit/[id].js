@@ -12,7 +12,6 @@ function edit(props) {
   const data = router.query
  
   const getAntrian =(data) => {
-    console.log("----------------------------",data.id)
     axios
       .get(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/antrian?id=${data.id}`)
       .then((res) => {
@@ -26,7 +25,6 @@ function edit(props) {
   };
 
   useEffect(() => {
-    console.log("---", data)
     try {
       if (data.id) {
         getAntrian(data)
@@ -39,7 +37,7 @@ function edit(props) {
       <>
         <Navbar/>
         <Backgound/>
-        <EditDataAntrian/>
+        <EditDataAntrian data={data}/>
       </>
 
     )
