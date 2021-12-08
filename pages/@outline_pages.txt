@@ -13,7 +13,7 @@
             index => information-antrian //belum konekin api dan role states
             edit => Edit-Antrian (done) //belum konekin api dan role states
             tambah => add-pengantri //belum konekin api dan role states
-    permintaan => request-admin (done)
+    permintaan => request-admin (done) => hanya roles super
     
 /antri/
     [:id]/ => join-antrian (done)

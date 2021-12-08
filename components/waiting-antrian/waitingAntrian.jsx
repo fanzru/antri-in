@@ -92,7 +92,7 @@ function WaitingAntrian() {
               </div>
             ) : (
               <div className="flex justify-center font-bold text-9xl">
-                <p>{dataAntrianNow.antrian.curr_antrian}</p>
+                <p className="text-center">{dataAntrianNow.antrian.curr_antrian}</p>
               </div>
             )
             }

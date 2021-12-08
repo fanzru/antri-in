@@ -20,10 +20,6 @@ function RequestAdmin(){
   const dispatchToast = useDispatch(selectToast)
 
   useEffect(() => {
-
-
-    // Jangan lupa di comment
-
     let token = cookie.get("token_admin") 
     let config = {
       headers: { Authorization: `Bearer ${token}` }
@@ -32,6 +28,7 @@ function RequestAdmin(){
     if (token) {
       role = JSON.parse(atob(token.split('.')[1]))["role"]
     }
+    console.log(role)
     if (role != "super") {
       router.push("/admin/")
     }

@@ -71,6 +71,7 @@ function LoginAdmin() {
         // Ini setting UI by Kae
         setSuccess(true);
         let token = response.data.data.token
+        console.log(token)
         cookie.set("token_admin", token)
         dispatch(setEmailLogin(""))
         dispatch(setPasswordLogin(""))
@@ -112,7 +113,6 @@ function LoginAdmin() {
                 {renderButtonMasuk()}
                 {Success ? (
                   <div
-                    href="/daftar"
                     className="bg-red-50 rounded-lg h-10 w-28 border-2 border-red-50 pt-1.5"
                   >
                     <p className="text-red-200 font-semibold text-center ">
