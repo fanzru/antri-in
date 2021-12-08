@@ -93,7 +93,7 @@ function Home(props) {
             <div className="flex flex-col py-5 overflow-y-auto h-80 px-4 mt-5 ">
               {dataAntrian.length != 0 ? dataAntrian.map((antrian, index) => {
                 return (
-                  <button key={index} onClick={ ()=> router.push(`/join-antrian/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
+                  <button key={index} onClick={ ()=> router.push(`/antri/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
                     <div className="font-reguler text-sm">{antrian.nama}</div>
                     <div className="flex justify-between items-center">
                       <div className="mx-3 font-bold items-center text-sm">
@@ -111,13 +111,13 @@ function Home(props) {
 
         <div className="container mx-auto mt-10 mb-4 content-center">
           <div className="flex items-center justify-center ">
-            <a onClick={() => router.push("/login-admin")}>
+            <a onClick={() => router.push("/masuk")}>
               <button className="text-red-400 font-bold hover:text-red-600 ">
                 Login Admin
               </button>
             </a>
             <div className="text-red-400 font-bold px-2"> || </div>
-            <a onClick={() => router.push("/cek-antrian")}>
+            <a onClick={() => router.push("/antri/periksa")}>
               <button className="text-red-400 font-bold hover:text-red-600 ">
                 Cek Antrian
               </button>

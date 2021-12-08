@@ -53,7 +53,7 @@ function ListAntrianAdmin(props) {
                 <div className="flex md:px-8 px-4 py-8 justify-between h-20 place-items-center bg-red-400 rounded-full md:rounded-3xl shadow-xl">
                     <span className="font-semibold text-sm w-full mr-10">{data.nama}</span>
                     <div className="flex gap-2 h-10 md:gap-8">
-                        {(role == "super") ? <button className="bg-white rounded-lg inline-flex items-center" onClick={()=>{router.push(`/admin/edit/${data._id}`)}}>
+                        {(role == "super") ? <button className="bg-white rounded-lg inline-flex items-center" onClick={()=>{router.push(`/admin/antrian/${data._id}/edit`)}}>
                             <div
                                 className='font-bold flex gap-3 px-2'
                             >

@@ -1,0 +1,23 @@
+/ => index
+/masuk => login-admin (done)
+/daftar => create-account (done)
+/jumbo => ???
+/qr => Scan-QR (done) // belum konekin api
+/tentang => about (done)
+
+/admin/
+    index => admin-page (done)
+    antrian/
+        tambah => Add-Antrian (done)
+        [:id]/
+            index => information-antrian //belum konekin api dan role states
+            edit => Edit-Antrian (done) //belum konekin api dan role states
+            tambah => add-pengantri //belum konekin api dan role states
+    permintaan => request-admin (done)
+    
+/antri/
+    [:id]/ => join-antrian (done)
+    menunggu/ => waiting-antrian (done)
+    dipanggil/ => called-antrian (done)
+    selesai/ => end-antrian(done)
+    periksa/ => cek-antrian (done)

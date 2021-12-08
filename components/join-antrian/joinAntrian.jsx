@@ -32,7 +32,7 @@ function JoinAntrian(props) {
         })
         .then((res) => {
           dispatch(createToastWarning("Selesaikan Antrian Anda"))
-          router.push("/waiting-antrian")
+          router.push("/antri/menunggu")
         })
         .catch((e) => {
           dispatch(createToastError("Antrian anda tidaak ada"))
@@ -71,7 +71,7 @@ function JoinAntrian(props) {
         cookie.set('token_pengantri', data.token)
         // do some logic here if success (200 OK)
         // DO routing here
-        router.push('/waiting-antrian')
+        router.push('/antri/menunggu')
       })
       .catch(function (err) {
         // do some logic if not (200 OK)

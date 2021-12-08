@@ -33,7 +33,7 @@ function RequestAdmin(){
       role = JSON.parse(atob(token.split('.')[1]))["role"]
     }
     if (role != "super") {
-      router.push("/admin-page")
+      router.push("/admin/")
     }
 
     axios.get(
@@ -42,7 +42,7 @@ function RequestAdmin(){
       dispatch(setDataListRequestAdmin(res.data.data))
     }).catch(e => {
       dispatchToast(createToastWarning("Token tidak valid, kembali ke dashbaord"))
-      router.push("/admin-page")
+      router.push("/admin/")
       // nanti balikkin ke homepage yo
     })
   }, [])

@@ -1,7 +1,15 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, {useEffect, useState} from "react";
 import {BsFillPersonFill, BsPlusLg} from "react-icons/bs"
+import Image from 'next/image'
 
 function InformationAntrian(){
+    var router = useRouter()
+    const [DataAntrian, setDataAntrian] = useState()
+    const [Loaded, setLoaded] = useState(false)
+    console.log(router.query)
+    useEffect(() => {
+    }, [])
     return(
         <div className='flex h-screen items-center justify-center'>
             <div className='w-3/4'>
@@ -53,8 +61,8 @@ function InformationAntrian(){
                             <span className='font-semibold'>Nama Panjang</span>
                             <div className='flex gap-2'>
                                 {/* <button className='h-full py-1 px-2 bg-white rounded-md shadow-md font-semibold'>Edit Antrian</button> */}
-                                <button className='h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md'>
-                                    <img src="rounded-x-button.svg" alt="x" srcset="" className='h-full p-2' />
+                                <button className='h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2'>
+                                    <Image src="/rounded-x-button.svg" width={35} height={56} alt="x" srcset="" className='h-full' />
                                 </button>
                             </div>
                         </div>

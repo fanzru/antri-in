@@ -76,7 +76,7 @@ function LoginAdmin() {
         dispatch(setPasswordLogin(""))
         // do some logic here if success (200 OK)
         // routing here
-        router.push("/admin-page")
+        router.push("/admin/")
       })
       .catch(function (err) {
         // do some logic if not (200 OK)
@@ -112,7 +112,7 @@ function LoginAdmin() {
                 {renderButtonMasuk()}
                 {Success ? (
                   <div
-                    href="/create-account"
+                    href="/daftar"
                     className="bg-red-50 rounded-lg h-10 w-28 border-2 border-red-50 pt-1.5"
                   >
                     <p className="text-red-200 font-semibold text-center ">
@@ -121,8 +121,8 @@ function LoginAdmin() {
                   </div>
                 ) : (
                   <a
-                    // onClick={() => {router.push("/create-account")}}
-                    href="/create-account" // Ini segera diubah nanti yaa
+                    // onClick={() => {router.push("/daftar")}}
+                    href="/daftar" // Ini segera diubah nanti yaa
                     className="flex flex-col items-center justify-center bg-red-50 rounded-lg h-10 w-28 border-2 border-red-300 text-red-600 font-semibold text-center"
                   >
                     <p>

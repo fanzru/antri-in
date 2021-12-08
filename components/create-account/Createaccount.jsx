@@ -64,7 +64,7 @@ function Createaccount() {
     })
       .then(function (response) {
         dispatch(createToastSuccess("Berhasil mendaftarkan akun, menunggu persetujuan admin"))
-        router.push("/login-admin")
+        router.push("/masuk")
       })
       .catch(function (err) {
         var res = err.response.data;
@@ -112,7 +112,7 @@ function Createaccount() {
           </form>
           <span className="text-gray-500 text-sm">
             Already have an account?{" "}
-            <a onClick={() => { router.push("/login-admin") }} className="cursor-pointer text-red-600">
+            <a onClick={() => { router.push("/masuk") }} className="cursor-pointer text-red-600">
               Log In
             </a>
           </span>

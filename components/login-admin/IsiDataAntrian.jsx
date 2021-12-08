@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 import { createToastWarning, createToastSuccess, selectToast } from "../../redux/toastSlice";
 import { useDispatch } from "react-redux";
 import router from "next/router";
+import Image from 'next/image'
 
 function IsiDataAntrian() {
   // Cek apakah cookies valid
@@ -51,14 +52,14 @@ function IsiDataAntrian() {
         setProcessing(false)
         dispatch(createToastSuccess("Berhasil menambahkan antrian!"));
         setSuccess(true)
-        router.push("/admin-page")
+        router.push("/admin/")
       })
       .catch((e) => {
         setProcessing(false)
         setFail(true)
         dispatch(createToastWarning("Token tidak valid, kembali ke homepage"));
         // nanti balikkin ke homepage yo
-        router.push("/admin-page")
+        router.push("/admin/")
       });
   };
 
@@ -104,7 +105,7 @@ function IsiDataAntrian() {
     <div>
       <div className="md:grid md:grid-cols-5 place-items-center py-28 pl-10 pr-5">
         <div className="h-full md:col-span-3 hidden md:block">
-          <img src="ilus-antri01.svg" alt="ilustrasi" />
+          <Image src="/ilus-antri01.svg" width={609} height={395} alt="ilustrasi" />
         </div>
         <div className="md:col-span-2 px-5 md:px-20 pt-11 w-full md:h-full">
           <span className="text-2xl font-bold">Isi Data Antrian</span>

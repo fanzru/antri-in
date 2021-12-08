@@ -25,7 +25,7 @@ function Navbar({goto="home"|"admin"}) {
 
   const handleLogo = () => {
     if (goto == "admin") {
-      router.push("/admin-page")
+      router.push("/admin/")
     } else {
       router.push("/")
     }
@@ -42,11 +42,7 @@ function Navbar({goto="home"|"admin"}) {
     },
     {
       menu: "About",
-      href: '/about'
-    },
-    {
-      menu: "Join Us",
-      href: '/'
+      href: '/tentang'
     }
   ];
   return (
@@ -64,12 +60,12 @@ function Navbar({goto="home"|"admin"}) {
                 /> */}
               </button>
             </div>
-            <div className="w-1/4 justify-around hidden md:flex lg:flex lg:items-center">
+            <div className="w-1/6 justify-around hidden md:flex lg:flex lg:items-center">
               {menus.map((menu, index) => {
                 return (
-                  <a key={index} className="flex items-center hover:font-semibold transition-all " href={menu.href}>
+                  <button key={index} className="flex items-center hover:font-semibold transition-all " onClick={ ()=>{router.push(menu.href)} }>
                     {menu.menu}{" "}
-                  </a>
+                  </button>
                 );
               })}
             </div>

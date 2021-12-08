@@ -37,10 +37,10 @@ function EndAntrian(props) {
           setDataAntrianNow(data)
           setLoading(false)
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
-            router.push("/called-antrian")
+            router.push("/antri/dipanggil")
           } else if (data.antrian.curr_antrian < data.no_antrian_pengantri) {
             dispatch(createToastWarning("Anda masih dalam antrian"))
-            router.push("/waiting-antrian")
+            router.push("/antri/menunggu")
           } else {
             cookie.remove("token_pengantri")
           }

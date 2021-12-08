@@ -26,7 +26,7 @@ function WaitingAntrian() {
           setDataAntrianNow(data)
           setLoading(false)
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
-            router.push("/called-antrian")
+            router.push("/antri/dipanggil")
           } else if (data.antrian.curr_antrian > data.no_antrian_pengantri) {
             cookie.remove("token_pengantri")
             dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
@@ -49,7 +49,7 @@ function WaitingAntrian() {
       .then(res => {
         dispatch(createToastSuccess("Berhasil membatalkan antrain"))
         cookie.remove("token_pengantri")
-        router.push("/end-antrian")
+        router.push("/antri/selesai")
       })
       .catch(err => {
         dispatch(createToastError("Tidak dapat membatalkan atrian, harap hubungi petugas antrian"))
