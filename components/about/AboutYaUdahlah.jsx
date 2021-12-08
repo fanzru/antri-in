@@ -72,7 +72,7 @@ function AboutYaUdahlah(props) {
   const handleBack = (e) => {
     e.preventDefault()
     setShowMember(true)
-    router.push("/about")
+    router.push("/tentang")
   }
 
   return (

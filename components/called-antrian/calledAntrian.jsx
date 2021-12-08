@@ -28,10 +28,10 @@ function CalledAntrian() {
           setLoading(false)
           if (data.antrian.curr_antrian > data.no_antrian_pengantri) {
             dispatch(createToastWarning("Antrian anda sudah selesai"))
-            router.push("/end-antrian")
+            router.push("/antri/selesai")
           } else if (data.antrian.curr_antrian < data.no_antrian_pengantri) {
             dispatch(createToastWarning("Anda masih harus menunggu antrian"))
-            router.push("/waiting-antrian")
+            router.push("/antri/menunggu")
           }
         })
         .catch((e) => {
@@ -50,7 +50,7 @@ function CalledAntrian() {
       .then(res => {
         dispatch(createToastSuccess("Berhasil membatalkan antrain"))
         cookie.remove("token_pengantri")
-        router.push("/end-antrian")
+        router.push("/antri/selesai")
       })
       .catch(err => {
         console.log(err)

@@ -64,7 +64,7 @@ function ListReqAdmin(props) {
                         <BsCheckLg />
                     </button>
                     <button onClick={handleDeclince} className='h-full w-8 bg-red-500 flex items-center justify-center rounded-lg'>
-                        <img src="rounded-x-button.svg" alt="x" srcset="" className='h-full p-2' />
+                        <img src="/rounded-x-button.svg" alt="x" srcSet="" className='h-full p-2' />
                     </button>
                 </div>
             </div>
