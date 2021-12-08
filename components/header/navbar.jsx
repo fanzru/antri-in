@@ -116,7 +116,7 @@ function Navbar({goto="home"|"admin"}) {
           </AnimatePresence>
         </div>
       </nav>
-      <div className="h-[51px]"></div>
+      <div className="h-[36px]"></div>
     </>
   );
 }

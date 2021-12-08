@@ -2,13 +2,18 @@ import React from "react";
 import BackgroundAbout from "../components/background/backgroundAbout";
 import Navbar from "../components/header/navbar";
 import AboutYaUdahlah from "../components/about/AboutYaUdahlah";
+import Head from 'next/head'
 
-function About(){
+function About() {
     return (
         <>
-            <Navbar/>
-            <AboutYaUdahlah/>
-            <BackgroundAbout/>
+            <Head>
+                <title>Tentang Antri.In</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            <Navbar />
+            <AboutYaUdahlah />
+            <BackgroundAbout />
         </>
     )
 }

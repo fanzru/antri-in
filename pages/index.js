@@ -1,7 +1,6 @@
 import React from "react";
-import Navbar from "../components/header/navbar.jsx";
-import JoinAntrian from "../components/join-antrian/joinAntrian.jsx";
 import Home from "../components/home/home";
+import Head from 'next/head'
 
 //import {useInView} from "react-intersection-observer";
 //import {useDispatch} from "react-redux";
@@ -9,8 +8,12 @@ import Home from "../components/home/home";
 
 export default function App() {
   return (
-      <>
-        <Home />
-      </>
+    <>
+      <Head>
+        <title>Antri.In</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Home />
+    </>
   );
 }
