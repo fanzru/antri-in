@@ -182,21 +182,26 @@ function InformationAntrian() {
       <Modal modalData={modalData} show={ShowModal} />
       <div className="flex h-screen items-center justify-center">
         <div className="w-3/4">
-          <div className="flex items-center md:justify-between justify-between py-5 px-5 md:px-20 gap-3 bg-red-400 md:rounded-3xl rounded-lg shadow-lg mb-10">
+          <div className="flex items-center md:justify-between justify-between py-5 px-5 md:px-14 gap-5 bg-red-400 md:rounded-3xl rounded-lg shadow-lg mb-10">
             {Loaded ? (
-              <span className="font-semibold">{DataAntrianNow.antrian.nama}</span>
+              <span className="font-semibold w-1/2">{DataAntrianNow.antrian.nama}</span>
             ) : (
-              <span className="font-semibold">------</span>
+              <span className="font-semibold w-1/2">------</span>
             )}
             {role == "super" && (
-              <button onClick={handleButtonToTambah} className="w-1/2 hidden md:block">
-                <div className="flex justify-between w-full items-center gap-3 bg-white py-3 px-10 rounded-md shadow-md">
-                  <p className="font-bold">Tambah Antrian Manual</p>
-                  <div className="flex items-center justify-center">
-                    <BsPlusLg />
-                  </div>
+             <div className='flex w-1/2 md:w-3/4 gap-5'>
+                <button className="w-full hidden md:block">
+                    <div className="flex justify-between w-full items-center gap-3 bg-white py-3 px-10 rounded-md shadow-md">
+                        <p className="font-bold">Tambah Antrian Manual</p>
+                        <div className="flex items-center justify-center">
+                            <BsPlusLg />
+                        </div>
+                    </div>
+                </button>
+                <button className='bg-gray-400 w-1/2 my-1 rounded-lg text-white'>
+                    Hapus Antrian
+                </button> 
                 </div>
-              </button>
             )}
             <div className="flex items-center">
               <div>
