@@ -10,6 +10,7 @@ import Image from 'next/image'
 function Home(props) {
   const [dataAntrian, setAntrian] = useState([]);
   const [Search, setSearch] = useState("")
+  const [Loaded, setLoaded] = useState(false)
   const router = useRouter()
   const getAntrian = () => {
     axios
@@ -17,9 +18,11 @@ function Home(props) {
       .then((res) => {
         const data = res.data.data;
         setAntrian(data);
+        setLoaded(true)
       })
       .catch((e) => {
         console.log(e);
+        setLoaded(true)
       });
   };
 
@@ -91,7 +94,7 @@ function Home(props) {
             </div>
 
             <div className="flex flex-col py-5 overflow-y-auto h-80 px-4 mt-5 ">
-              {dataAntrian.length != 0 ? dataAntrian.map((antrian, index) => {
+              {(!Loaded) ?  <div className="text-center select-none">Memuat Data Antrian...</div> : dataAntrian.length != 0 ? dataAntrian.map((antrian, index) => {
                 return (
                   <button key={index} onClick={ ()=> router.push(`/antri/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
                     <div className="font-reguler text-sm">{antrian.nama}</div>
@@ -119,7 +122,7 @@ function Home(props) {
             <div className="text-red-400 font-bold px-2"> || </div>
             <a onClick={() => router.push("/antri/periksa")}>
               <button className="text-red-400 font-bold hover:text-red-600 ">
-                Cek Antrian
+                Lanjutkan Antrian
               </button>
             </a>
           </div>

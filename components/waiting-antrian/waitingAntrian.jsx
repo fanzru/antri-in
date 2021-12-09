@@ -77,7 +77,7 @@ function WaitingAntrian() {
             </div>
           ) : (
             <div className="flex w-full justify-center">
-              <h1 className="text-3xl font-bold">{dataAntrianNow.antrian.nama}</h1>
+              <h1 className="text-3xl font-bold text-center">{dataAntrianNow.antrian.nama}</h1>
             </div>
           )}
 
