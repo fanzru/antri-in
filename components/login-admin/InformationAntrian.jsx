@@ -190,7 +190,7 @@ function InformationAntrian() {
             )}
             {role == "super" && (
              <div className='flex w-1/2 md:w-3/4 gap-5'>
-                <button className="w-full hidden md:block">
+                <button onClick={handleButtonToTambah} className="w-full hidden md:block">
                     <div className="flex justify-between w-full items-center gap-3 bg-white py-3 px-10 rounded-md shadow-md">
                         <p className="font-bold">Tambah Antrian Manual</p>
                         <div className="flex items-center justify-center">
