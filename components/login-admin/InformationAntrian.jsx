@@ -100,11 +100,10 @@ function InformationAntrian() {
       bodyFormData.append("token_id", dataPengantri._id);
       await axios.delete(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/pengantri`, { data: bodyFormData })
         .then(res => {
-          dispatch(createToastSuccess("Berhasil membatalkan antrain"))
-          router.push("/admin/")
+          dispatch(createToastSuccess("Berhasil menghapus pengantri"))
         })
         .catch(err => {
-          dispatch(createToastError("Tidak dapat membatalkan atrian"))
+          dispatch(createToastError("Tidak dapat menghapus pengantri"))
           router.push("/admin/")
         })
       setShowModal(false); // Kalau mau ditutup setelah di klik,harus tambahin ini
@@ -119,7 +118,7 @@ function InformationAntrian() {
     setShowModal(true);
   };
 
-  const handleHapusAntrian = (dataPengantri) => {
+  const handleHapusAntrian = () => {
     /// Setup modal
     modalData.message =
       `Apakah anda yakin untuk menghapus antrian ${DataAntrianNow.antrian.nama} dengan ${DataAntrianNow.pengantri.length} pengantri akan dibatalkan?`; // Must
@@ -172,7 +171,7 @@ function InformationAntrian() {
                   </p>
                 }
                 <span className="font-semibold">
-                  {DataAntrianNow.pengantri[0].nama}
+                  {DataAntrianNow.pengantri[0].nama} <span className="font-light">| {DataAntrianNow.pengantri[0].no_antrian}</span>
                 </span>
               </div>
               <div className="flex gap-2">
@@ -181,7 +180,7 @@ function InformationAntrian() {
                 </button>
                 <div className="flex gap-2">
                   {role == "super" && (DataAntrianNow.pengantri[0].no_antrian != DataAntrianNow.antrian.curr_antrian) && (
-                    <button onClick={handleHapusPengantri} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
+                    <button onClick={() => handleHapusPengantri(DataAntrianNow.pengantri[0])} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
                       <Image
                         src="/rounded-x-button.svg"
                         width={35}
@@ -201,11 +200,11 @@ function InformationAntrian() {
             if (idx != 0) {
               return (
                 <div className="flex justify-between items-center p-3 bg-red-200 mb-3 rounded-lg shadow-md">
-                  <span className="font-semibold">{v.nama}</span>
+                  <span className="font-semibold">{v.nama} <span className="font-light">| {v.no_antrian}</span></span>
                   <div className="flex gap-2">
                     {/* <button className='h-full py-1 px-2 bg-white rounded-md shadow-md font-semibold'>Edit Antrian</button> */}
                     {role == "super" && (
-                      <button onClick={handleHapusPengantri} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
+                      <button onClick={() => handleHapusPengantri(v)} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
                         <Image
                           src="/rounded-x-button.svg"
                           width={35}
