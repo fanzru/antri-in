@@ -4,10 +4,11 @@ import axios from "axios";
 import { trimSpace } from "../../utils/helper/trimSpace"
 import { useRouter } from "next/router";
 import ClipLoader from "react-spinners/ClipLoader";
-import { BsTelephone } from "react-icons/bs";
+import { BsTelephone,BsFillPersonFill } from "react-icons/bs";
 import { useDispatch } from 'react-redux'
 import { createToastWarning, createToastError, selectToast } from '../../redux/toastSlice'
 import Cookies from 'universal-cookie';
+
 
 function JoinAntrian(props) {
   const detailAntrian = props.data
@@ -105,10 +106,10 @@ function JoinAntrian(props) {
             >
               Nama
             </label>
-            <div className="flex items-center justify-center w-full mt-1 border border-black">
+            <div className="flex items-center justify-center w-full mt-1 ">
               <div className="flex rounded-lg shadow-lg w-full">
                 <div className="inline-flex items-center px-3 rounded-l-lg bg-red-100 text-gray-500 text-sm">
-                  <BsTelephone />
+                  <BsFillPersonFill/>
                 </div>
                 <input
                   type="text"

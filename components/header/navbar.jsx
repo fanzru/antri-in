@@ -47,7 +47,7 @@ function Navbar({goto="home"|"admin"}) {
   ];
   return (
     <>
-      <nav className="bg-red-100 fixed">
+      <nav className="bg-red-100 fixed z-100">
         <div className="w-screen px-7 mx-auto">
           <div className="flex justify-between ">
             <div className="flex">

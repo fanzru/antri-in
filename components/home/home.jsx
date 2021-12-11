@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import axios from "axios";
 import Image from 'next/image'
 
+
 function Home(props) {
   const [dataAntrian, setAntrian] = useState([]);
   const [Search, setSearch] = useState("")
@@ -47,11 +48,10 @@ function Home(props) {
   return (
     <div className="">
       <Backgound />
-      <div className={"z-50"}>
-        <Navbar />
+      <div className={""}>
         <div className="container mx-auto mt-12 px-7 md:flex md:justify-between  ">
           <div className="flex flex-col mb-10">
-            <Image src="/antriin-ilus.svg" className="m-2" height={408.94} width={584} />
+            <img src="/antriin-ilus.svg" className="m-2 " height={408.94} width={584} />
             {/* <img src="antriin-ilus.svg" alt="Ilustrator Antriin" /> */}
             <div className="flex flex-col">
               <h1 className="mt-3 flex justify-center font-semibold text-2xl text-red-400">
@@ -76,12 +76,12 @@ function Home(props) {
                 id="search" type="text" placeholder="Cari Antrian"/>
             </div>*/}
 
-            <div className="w-full pt-2 relative mx-auto text-gray-60 ">
+            <div className="w-[290px] md:w-[600px]  pt-2 relative mx-auto text-gray-60 ">
               <input
                 className="border-2 w-full border-gray-300 bg-white py-3 px-4  rounded-full text-sm focus:outline-none focus:border-red-300"
                 type="text"
                 name="search"
-                placeholder="Search"
+                placeholder="Cari Antrianmu"
                 onChange={handleSearch}
                 value={Search}
               />
@@ -112,7 +112,8 @@ function Home(props) {
           </div>
         </div>
 
-        <div className="container mx-auto mt-10 mb-4 content-center">
+{/*         <div className="container mx-auto mt-10 mb-4 content-center"> */}
+         <div className={"md:fixed bottom-4 left-0 w-full text-center mb-5 mt-20 "}>
           <div className="flex items-center justify-center ">
             <a onClick={() => router.push("/masuk")}>
               <button className="text-red-400 font-bold hover:text-red-600 ">
