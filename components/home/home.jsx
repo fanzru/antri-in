@@ -97,7 +97,7 @@ function Home(props) {
               {(!Loaded) ?  <div className="text-center select-none">Memuat Data Antrian...</div> : dataAntrian.length != 0 ? dataAntrian.map((antrian, index) => {
                 return (
                   <button key={index} onClick={ ()=> router.push(`/antri/${antrian._id}`)  } className="flex  items-center justify-between w-full py-4 px-3 mb-2 rounded-full bg-red-300 hover:bg-red-400">
-                    <div className="font-reguler text-sm">{antrian.nama}</div>
+                    <div className="font-reguler text-sm text-left">{antrian.nama}</div>
                     <div className="flex justify-between items-center">
                       <div className="mx-3 font-bold items-center text-sm">
                         {" "}
