@@ -36,6 +36,10 @@ function InformationAntrian() {
       )
       .then((res) => {
         const data = res.data.data;
+        if (data.antrian.nama == "") {
+          dispatch(createToastError("Antrian sudah tidak ada"))
+          router.push("/admin/")
+        }
         setDataAntrianNow(data);
         setLoaded(true);
       })

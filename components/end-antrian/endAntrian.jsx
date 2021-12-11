@@ -35,6 +35,11 @@ function EndAntrian(props) {
         .then((res) => {
           const data = res.data.data
           setDataAntrianNow(data)
+          if (data.antrian.nama == "") {
+            dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
+            cookie.remove("token_pengantri")
+            router.push("/")
+          }
           setLoading(false)
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
             router.push("/antri/dipanggil")

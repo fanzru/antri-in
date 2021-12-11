@@ -25,6 +25,11 @@ function WaitingAntrian() {
           const data = res.data.data
           setDataAntrianNow(data)
           setLoading(false)
+          if (data.antrian.nama == "") {
+            dispatch(createToastError("Anda tidak masuk ke dalam antrian"))
+            cookie.remove("token_pengantri")
+            router.push("/")
+          }
           if (data.antrian.curr_antrian == data.no_antrian_pengantri) {
             router.push("/antri/dipanggil")
           } else if (data.antrian.curr_antrian > data.no_antrian_pengantri) {
