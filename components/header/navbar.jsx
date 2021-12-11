@@ -4,11 +4,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useWindowWidth } from "@react-hook/window-size/throttled";
 import { useRouter } from "next/router";
 import Image from 'next/image'
+import Cookies from 'universal-cookie';
 
 function Navbar({goto="home"|"admin"}) {
+  const cookie = new Cookies()
+  const [statusMasuk,setStatusMasuk] = useState(false)
+
   const router = useRouter()
   const [activeBar, setActiveBar] = useState(false);
   const width = useWindowWidth();
+  useEffect(() => {
+      let tokenData = cookie.get("token_admin")
+      if (tokenData) {
+        setStatusMasuk(true)
+      } else {
+        setStatusMasuk(false)
+      }
+    }, [])
+
   useEffect(() => {
     if (width > 750) {
       setActiveBar(false);
@@ -33,7 +46,12 @@ function Navbar({goto="home"|"admin"}) {
 
   const [view, setView] = useState("Home");
 
-
+  const handleLogout = (e) => {
+    e.preventDefault();
+    cookie.remove("token_admin")
+    setStatusMasuk(false)
+    router.push("/")
+  }
 
   const menus = [
     {
@@ -47,7 +65,7 @@ function Navbar({goto="home"|"admin"}) {
   ];
   return (
     <>
-      <nav className="bg-red-100 fixed z-100">
+      <nav className="bg-red-100 fixed z-200">
         <div className="w-screen px-7 mx-auto">
           <div className="flex justify-between ">
             <div className="flex">
@@ -68,6 +86,15 @@ function Navbar({goto="home"|"admin"}) {
                   </button>
                 );
               })}
+              { !statusMasuk ?
+                <button className="flex items-center transition-all border border-red-400 text-red-400 px-4 py-1 rounded-full hover:bg-red-400 hover:text-white" onClick={ ()=>{router.push("/masuk")} }>
+                  Masuk
+                </button> :
+                <button className="flex items-center transition-all border border-red-400 text-red-400 px-4 py-1 rounded-full hover:bg-red-400 hover:text-white" onClick={handleLogout}>
+                  Keluar
+                </button>
+               }
+
             </div>
             <div className="flex items-center md:hidden">
               <button
@@ -102,15 +129,34 @@ function Navbar({goto="home"|"admin"}) {
               >
                 {menus.map((menu, index) => {
                   return (
-                    <a key={index}
+                    <button key={index}
                       className="block py-2 px-4 text-sm text-center container rounded-md hover:bg-red-400 hover:text-white"
-                      href={menu.href}
+                      onClick={()=>{router.push(menu.href)}}
                     >
                       {" "}
                       {menu.menu}
-                    </a>
+                    </button>
                   );
+
                 })}
+                <div className={"flex justify-center"}>
+                  {!statusMasuk?
+                  <button className=" py-2 px-4 text-sm text-red-600 font-semibold text-center w-full rounded-md hover:bg-red-400 hover:text-white mb-2  "
+                    onClick={()=>{router.push("/masuk")}}
+                    >
+                    {" "}
+                    Masuk
+                   </button> :
+                    <button className=" py-2 px-4 text-sm text-red-500 text-red-600 font-semibold text-center w-full rounded-md hover:bg-red-400 hover:text-white mb-2"
+                        onClick={handleLogout}
+                      >
+                        {" "}
+                        Keluar
+                    </button>
+                    }
+
+                </div>
+
               </motion.div>
             )}
           </AnimatePresence>

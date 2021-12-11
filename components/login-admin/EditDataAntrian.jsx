@@ -34,7 +34,8 @@ function EditDataAntrian(props) {
 
 
     const handleClick = (e) => {
-        const id = props.data.id;
+        const id = props.data;
+
         e.preventDefault()
         var config = {
             headers: { Authorization: `Bearer ${token}` }

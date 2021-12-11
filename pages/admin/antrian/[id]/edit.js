@@ -3,8 +3,11 @@ import EditDataAntrian from "../../../../components/login-admin/EditDataAntrian"
 import Backgound from "../../../../components/background/backgound";
 import Navbar from "../../../../components/header/navbar";
 import Head from 'next/head'
+import {useRouter} from "next/router"
 
 function EditAntrian() {
+    const router = useRouter()
+    const id = router.query.id
     return (
         <>
             <Head>
@@ -13,7 +16,7 @@ function EditAntrian() {
             </Head>
             <Navbar />
             <Backgound />
-            <EditDataAntrian />
+            <EditDataAntrian data={id} />
         </>
     )
 }
