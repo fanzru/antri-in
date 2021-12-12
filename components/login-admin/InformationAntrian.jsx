@@ -36,6 +36,10 @@ function InformationAntrian() {
       )
       .then((res) => {
         const data = res.data.data;
+        if (data.antrian.nama == "") {
+          dispatch(createToastError("Antrian sudah tidak ada"))
+          router.push("/admin/")
+        }
         setDataAntrianNow(data);
         setLoaded(true);
       })
@@ -100,11 +104,42 @@ function InformationAntrian() {
       bodyFormData.append("token_id", dataPengantri._id);
       await axios.delete(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/pengantri`, { data: bodyFormData })
         .then(res => {
-          dispatch(createToastSuccess("Berhasil membatalkan antrain"))
+          dispatch(createToastSuccess("Berhasil menghapus pengantri"))
+        })
+        .catch(err => {
+          dispatch(createToastError("Tidak dapat menghapus pengantri"))
+          router.push("/admin/")
+        })
+      setShowModal(false); // Kalau mau ditutup setelah di klik,harus tambahin ini
+    };
+
+    modalData.declineMessage = "Tidak"; // Optional
+    modalData.onDecline = () => {
+      // Must if declineMessage is not empty
+      setShowModal(false); // Kalau mau ditutup setelah di klik, harus tambahin ini
+    };
+    setModalData(modalData);
+    setShowModal(true);
+  };
+
+  const handleHapusAntrian = () => {
+    /// Setup modal
+    modalData.message =
+      `Apakah anda yakin untuk menghapus antrian ${DataAntrianNow.antrian.nama} dengan ${DataAntrianNow.pengantri.length} pengantri akan dibatalkan?`; // Must
+
+    modalData.acceptMessage = "Iya"; // Optional
+    var config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    modalData.onAccept = async () => {
+      // Must if acceptMessage is not empty
+      await axios.delete(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/admin/antrian?id=${AntrianID}`, config)
+        .then(res => {
+          dispatch(createToastSuccess("Berhasil menghapus antrian"))
           router.push("/admin/")
         })
         .catch(err => {
-          dispatch(createToastError("Tidak dapat membatalkan atrian"))
+          dispatch(createToastError("Tidak dapat menghapus antrian"))
           router.push("/admin/")
         })
       setShowModal(false); // Kalau mau ditutup setelah di klik,harus tambahin ini
@@ -132,18 +167,35 @@ function InformationAntrian() {
           {/* Ini yang pertama */}
           {DataAntrianNow.pengantri.length > 0 &&
             <div className="flex justify-between items-center p-3 bg-red-200 mb-3 rounded-lg shadow-md">
-              <div className="flex flex-col">  
-              <p>
-              Pengantri Saat Ini
-              </p> 
-              <span className="font-semibold">
-                {DataAntrianNow.pengantri[0].nama}
-              </span>
+              <div className="flex flex-col">
+                {
+                  (DataAntrianNow.pengantri[0].no_antrian == DataAntrianNow.antrian.curr_antrian) &&
+                  <p>
+                    Pengantri Saat Ini
+                  </p>
+                }
+                <span className="font-semibold">
+                  {DataAntrianNow.pengantri[0].nama} <span className="font-light">| {DataAntrianNow.pengantri[0].no_antrian}</span>
+                </span>
               </div>
               <div className="flex gap-2">
                 <button onClick={handleTambahNomor} className="h-full py-1 px-2 bg-red-500 rounded-md shadow-md text-white">
                   Berikutnya
                 </button>
+                <div className="flex gap-2">
+                  {role == "super" && (DataAntrianNow.pengantri[0].no_antrian != DataAntrianNow.antrian.curr_antrian) && (
+                    <button onClick={() => handleHapusPengantri(DataAntrianNow.pengantri[0])} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
+                      <Image
+                        src="/rounded-x-button.svg"
+                        width={35}
+                        height={35}
+                        alt="x"
+                        srcSet=""
+                        className="h-full"
+                      />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           }
@@ -152,11 +204,11 @@ function InformationAntrian() {
             if (idx != 0) {
               return (
                 <div className="flex justify-between items-center p-3 bg-red-200 mb-3 rounded-lg shadow-md">
-                  <span className="font-semibold">{v.nama}</span>
+                  <span className="font-semibold">{v.nama} <span className="font-light">| {v.no_antrian}</span></span>
                   <div className="flex gap-2">
                     {/* <button className='h-full py-1 px-2 bg-white rounded-md shadow-md font-semibold'>Edit Antrian</button> */}
                     {role == "super" && (
-                      <button className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
+                      <button onClick={() => handleHapusPengantri(v)} className="h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md p-2">
                         <Image
                           src="/rounded-x-button.svg"
                           width={35}
@@ -189,19 +241,19 @@ function InformationAntrian() {
               <span className="font-semibold w-1/2">------</span>
             )}
             {role == "super" && (
-             <div className='flex w-1/2 md:w-3/4 gap-5'>
+              <div className='flex w-1/2 md:w-3/4 gap-5'>
                 <button onClick={handleButtonToTambah} className="w-full hidden md:block">
-                    <div className="flex justify-between w-full items-center gap-3 bg-white py-3 px-10 rounded-md shadow-md">
-                        <p className="font-bold">Tambah Antrian Manual</p>
-                        <div className="flex items-center justify-center">
-                            <BsPlusLg />
-                        </div>
+                  <div className="flex justify-between w-full items-center gap-3 bg-white py-3 px-10 rounded-md shadow-md">
+                    <p className="font-bold">Tambah Antrian Manual</p>
+                    <div className="flex items-center justify-center">
+                      <BsPlusLg />
                     </div>
+                  </div>
                 </button>
-                <button className='bg-gray-400 w-1/2 my-1 rounded-lg text-white'>
-                    Hapus Antrian
-                </button> 
-                </div>
+                <button onClick={handleHapusAntrian} className='bg-gray-400 w-1/2 my-1 rounded-lg text-white shadow-md'>
+                  Hapus Antrian
+                </button>
+              </div>
             )}
             <div className="flex items-center">
               <div>

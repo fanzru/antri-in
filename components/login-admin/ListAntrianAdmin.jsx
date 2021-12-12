@@ -65,7 +65,7 @@ function ListAntrianAdmin(props) {
                 <div
                     className="flex md:px-8 px-4 w-full py-8 justify-between h-20 place-items-center bg-red-400 rounded-full md:rounded-3xl shadow-xl "
                 >
-                    <p className="font-semibold text-left text-sm w-full mr-10">
+                    <p className="font-semibold text-left text-sm w-full mr-10 truncate ">
                         {data.nama}
                     </p>
                     <div className="flex gap-2 h-10 md:gap-8 z-10">
