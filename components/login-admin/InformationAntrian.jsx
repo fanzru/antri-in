@@ -250,7 +250,7 @@ function InformationAntrian() {
                     </div>
                   </div>
                 </button>
-                <button onClick={handleHapusAntrian} className='bg-gray-400 w-1/2 my-1 rounded-lg text-white shadow-md'>
+                <button onClick={handleHapusAntrian} className='bg-gray-400 w-full md:w-1/2 my-1 rounded-lg text-white shadow-md'>
                   Hapus Antrian
                 </button>
               </div>
