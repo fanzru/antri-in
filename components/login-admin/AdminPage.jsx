@@ -95,20 +95,12 @@ function Adminpage() {
                 </div>
                 {(role == "super") &&
                   <div className='gap-2 flex justify-between'>
-                    {/* <a 
-                  href=""
-                  className="bg-red-50 rounded-xl h-12 md:h-full w-1/4 border-2 border-red-300 text-red-600 font-semibold text-center pt-2.5 md:pt-1.5"
-                >3</a> */}
                     <button onClick={() => { router.push("/admin/permintaan") }} className='bg-red-50 rounded-xl h-12 md:h-full w-1/3 border-2 border-red-300 text-red-600 text-base font-semibold text-center shadow-lg inline-flex items-center justify-center'>
                       <div className='mr-1'>
                         <MdPersonAddAlt1 />
                       </div>
                       <span>{jumlahRequestAdmin}</span>
                     </button>
-                    {/* <a 
-                  href=""
-                  className="bg-red-50 rounded-xl h-12 md:h-full w-full border-2 border-red-300 text-red-600 font-semibold text-center pt-2.5 md:pt-1"
-                >Buat Antrian Baru</a> */}
                     <button onClick={() => { router.push("/admin/antrian/tambah") }} className='bg-red-50 rounded-xl h-12 md:h-full w-full border-2 border-red-300 text-red-600 font-semibold text-center shadow-lg text-sm'>
                       Buat Antrian Baru
                     </button>

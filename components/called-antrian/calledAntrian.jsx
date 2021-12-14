@@ -85,7 +85,7 @@ function CalledAntrian() {
 
           <div className="flex flex-col py-5 mt-10 w-full justify-between mx-auto border rounded-xl shadow-md bg-red-200">
             <div className="flex justify-center font-semibold text-xl text-gray-500 ">
-              <p>Antrian Saat ini</p>
+              <p>Nomor Antrian Anda</p>
             </div>
             {Loading ? (
               <div className="flex justify-center font-bold text-9xl">

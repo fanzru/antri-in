@@ -77,7 +77,7 @@ function ListAntrianAdmin(props) {
                                 }}
                             >
                                 <div className="font-bold flex gap-3 px-2">
-                                    <span className="hidden md:inline pt-2 text-xs">Edit </span>
+                                    <span className="hidden md:inline pt-2 text-xs">Ubah </span>
                                     <div className="p-2">
                                         <BsPencilFill />
                                     </div>

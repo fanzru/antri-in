@@ -8,7 +8,7 @@ function DescriptionAntrian(props) {
       <div>{data.nama}</div>
       <div className="font-bold">Deskripsi :</div>
       <div>{data.deskripsi}</div>
-      <div className="font-bold">Jumlah antrian   : </div>
+      <div className="font-bold">Jumlah Pengantri Saat Ini:</div>
       <div>{data.max_antrian - data.curr_antrian}</div>
     </div>
   );

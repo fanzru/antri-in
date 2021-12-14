@@ -68,7 +68,7 @@ function RequestAdmin(){
     return (
         <div>
             <div className='mt-10 mx-8 md:mx-36'>
-                <span className='font-bold text-2xl'>Request Admin</span>
+                <span className='font-bold text-2xl'>Permintaan Admin</span>
                 <div className="bg-gray-400 p-5 mt-5 md:mt-8 rounded-xl shadow-lg">
                     {List.map((data, idx) => {
                         return <ListReqAdmin index={idx} data={data}/>

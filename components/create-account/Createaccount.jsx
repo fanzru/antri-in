@@ -77,7 +77,7 @@ function Createaccount() {
     return  Loading ? (
       <div className="flex bg-red-300 content-center items-center justify-center rounded-lg gap-2 h-10 w-full select-none text-white font-bold my-4">
         <ClipLoader size={23} color="white" />
-        <p className="text-center">Processing</p>
+        <p className="text-center">Memproses</p>
       </div>
     ) : (
       <button
@@ -93,7 +93,7 @@ function Createaccount() {
     <div>
       <div className="md:grid md:grid-cols-2 gap-4 place-items-center py-28 px-5">
         <div className="px-8 md:px-20 pt-12 w-full md:h-full sm:h-screen">
-          <span className="font-bold text-xl">Create Account</span>
+          <span className="font-bold text-xl">Buat Akun</span>
           <form action="" className="mt-3">
             {ListInput.map((data, id) => {
               return <InputUnderline key={id} data={data} Icon={Icons[id]} />;
@@ -104,16 +104,16 @@ function Createaccount() {
                     {GagalText}
                   </p>
                   <p className="text-center text-sm text-red-400">
-                    Please Contact Admin If You're Not Sure
+                   Kontak Admin jika anda tidak yakin.
                   </p>
                 </div>
               )}
             {tombolSubmit()}
           </form>
           <span className="text-gray-500 text-sm">
-            Already have an account?{" "}
+           Sudah Memiliki Akun?{" "}
             <a onClick={() => { router.push("/masuk") }} className="cursor-pointer text-red-600">
-              Log In
+              Masuk
             </a>
           </span>
         </div>

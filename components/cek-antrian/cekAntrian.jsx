@@ -58,7 +58,7 @@ function CekAntrian(props) {
     
       <button onClick={handleCek} className="flex mt-5 px-6 py-2 items-center justify-center bg-red-400 rounded-md hover:bg-red-500 hover:text-white">
         <div className="flex items-center font-bold text-xs text-white">
-          <p className="px-1">Cek</p>
+          <p className="px-1">Lanjutkan Antrian</p>
           <AiOutlineArrowRight/>
         </div>
         </button>

@@ -92,7 +92,7 @@ function AboutYaUdahlah(props) {
             <div className="flex flex-col h-screen mx-10 justify-center text-gray-500">
               <p className="font-poppins text-5xl font-extrabold"> Yaudahlah </p>
               <p className="font-poppins text-5xl font-thin"> Team </p>
-              <p className="mt-4 mb-5 font-poppins text-base font-thin"> CONTACT US : </p>
+              <p className="mt-4 mb-5 font-poppins text-base font-thin"> Hubungi Kami : </p>
               {members.map((member,index)=>{
                 return (
                   <div key={index} >

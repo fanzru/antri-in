@@ -78,7 +78,7 @@ function EditDataAntrian(props) {
                 <div className="md:col-span-2 px-5 md:px-20 pt-11 w-full md:h-full">
                     <span className="text-2xl font-bold">
                         <p>
-                            Edit Data Antrian
+                            Ubah Data Antrian
                         </p>
                         <p>
                             {DataAntrian != null && DataAntrian.nama}

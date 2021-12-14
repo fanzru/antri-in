@@ -29,11 +29,11 @@ function LoginAdmin() {
   const renderButtonMasuk = () => {
     return Success ? (
       <div className="flex gap-3 select-none justify-center items-center px-6 py-2 bg-red-300 rounded-lg h-10 w-28">
-        <p className="font-bold text-red-50">Redirecting</p>
+        <p className="font-bold text-red-50">Mengarahkan</p>
       </div>
     ) : Loading ? (
       <div className="flex gap-3 select-none justify-center items-center px-6 py-2 bg-red-300 rounded-lg h-10 w-28 text-white">
-        Loading
+        Memproses
         <ClipLoader size={23} color="white" />
       </div>
     ) : (
@@ -95,7 +95,7 @@ function LoginAdmin() {
             <img className="" src="ilus-antri01.svg"></img>
           </div>
           <div className="px-10 pt-11 md:h-full sm:h-screen">
-            <span className="text-2xl font-bold">Sign In</span>
+            <span className="text-2xl font-bold">Masuk Admin</span>
             <form className="py-4">
               <InputEmail />
               <InputPass />
@@ -105,7 +105,7 @@ function LoginAdmin() {
                     {GagalText}
                   </p>
                   <p className="text-center text-sm text-red-400">
-                    Please Contact Admin If You're Not Sure
+                    Kontak Admin jika anda tidak yakin
                   </p>
                 </div>
               )}

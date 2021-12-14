@@ -59,16 +59,16 @@ function Home(props) {
                 Antri.in
               </h1>
               <p className="text-sm text-center mt-2 font-light">
-                Antriin merupakan sebuah webapps untuk menbuat dan mengikuti
+                Antri.In merupakan sebuah webapps untuk menbuat dan mengikuti
                 antrian jadi lebih mudah dan menyenangkan
               </p>
             </div>
           </div>
 
           <div className="flex flex-col md:w-full md:mx-40">
-            <div className="flex justify-center font-extrabold text-black text-xl uppercase">
+            <div className="flex justify-center font-extrabold text-black text-xl ">
               {" "}
-              Silahkan Memilih
+              Pilih Antrian yang Tersedia
             </div>
             {/*<div className=" mt-4">
               <input
@@ -117,7 +117,7 @@ function Home(props) {
           <div className="flex items-center justify-center ">
             <a onClick={() => router.push("/masuk")}>
               <button className="text-red-400 font-bold hover:text-red-600 ">
-                Login Admin
+                Masuk Admin
               </button>
             </a>
             <div className="text-red-400 font-bold px-2"> || </div>
@@ -129,7 +129,7 @@ function Home(props) {
           </div>
 
           <p className="flex items-center justify-center font-light text-sm">
-            Support by Antri.in and Yaudahlah Team
+            Dibuat oleh Antri.in and Tim Yaudahlah
           </p>
         </div>
       </div>

@@ -57,7 +57,7 @@ function IsiDataAntrian() {
       .catch((e) => {
         setProcessing(false)
         setFail(true)
-        dispatch(createToastWarning("Token tidak valid, kembali ke homepage"));
+        dispatch(createToastWarning("Token tidak valid, kembali ke halaman awal"));
         // nanti balikkin ke homepage yo
         router.push("/admin/")
       });
@@ -66,7 +66,7 @@ function IsiDataAntrian() {
   const renderButton = () => {
     return Processing ? (
       <div className="flex items-center justify-center px-6 py-2 bg-red-300 select-none rounded-lg h-10 w-28 text-white">
-        Processing
+        Memproses
         <div className="pt-1 ml-1">
           {" "}
           <ClipLoader size={23} color="white" />

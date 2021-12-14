@@ -120,10 +120,9 @@ function WaitingAntrian() {
           </div>
 
           <div className="flex flex-col justify-center mt-10 mb-16">
-            <p className="text-center text-xs">Notigikasi akan muncul saat antrian sudah dekat.</p>
+            {/* <p className="text-center text-xs">Notifikasi akan muncul saat antrian sudah dekat.</p> */}
             <p className="text-center text-xs text-red-500">Jangan menutup browser agar mendapatkan notifikasi.</p>
           </div>
-
 
           <button onClick={handleBatalAntrian} className="flex mx-auto px-8 py-4 items-center justify-center mb-10 bg-red-500 rounded-md">
             <p className="text-white font-semibold text-xs">

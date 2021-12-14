@@ -170,21 +170,7 @@ export default function AddPengatri() {
 										</div>
 									</div>
 								</form>
-								{/* <span className='font-semibold'>Nama Panjang</span>
-														<div className='flex gap-2'>
-																<button className='h-full py-1 px-2 bg-white rounded-md shadow-md font-semibold'>Edit Antrian</button>
-																<button className='h-full w-8 bg-red-500 flex items-center justify-center rounded-md shadow-md'>
-																		<img src="rounded-x-button.svg" alt="x" srcSet="" className='h-full p-2' />
-																</button>
-														</div> */}
 							</div>
-							{/* tambah antrian manual */}
-							{/* <div className='flex justify-between items-center bg-white p-3 rounded-lg shadow-md'>
-														<span className='font-bold'>Tambah Antrian Manual</span>
-														<div className='flex items-center justify-center'>
-																<BsPlusLg/>
-														</div>        
-												</div> */}
 						</div>
 					</div>
 				</div>

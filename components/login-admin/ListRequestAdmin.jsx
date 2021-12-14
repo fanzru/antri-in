@@ -28,7 +28,7 @@ function ListReqAdmin(props) {
             dispatchToast(createToastSuccess("Berhasil menerima "+ dataReq.nama))
         }).catch(e => {
             console.log(e)
-            dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
+            dispatchToast(createToastWarning("Token tidak valid, kembali ke halaman awal"))
             // nanti balikkin ke homepage yo
         })
     }
@@ -43,7 +43,7 @@ function ListReqAdmin(props) {
             dispatchToast(createToastSuccess("Berhasil menolak "+ dataReq.nama))
         }).catch(e => {
             console.log(e)
-            dispatchToast(createToastWarning("Token tidak valid, kembali ke homepage"))
+            dispatchToast(createToastWarning("Token tidak valid, kembali ke halaman awal"))
             // nanti balikkin ke homepage yo
         })
     }

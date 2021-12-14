@@ -123,7 +123,7 @@ function PindaiQRcode() {
                     <p className="text-center">Memuat QR Code</p>}
                 </div>
                 <div className='flex justify-center md:justify-start md:col-start-2 md:col-end-3 text-md md:text-lg'>
-                    <span className='font-bold text-center'>Powered by:<br></br><span className='font-normal'>Antri</span>.in</span>
+                    <span className='font-bold text-center'>Dibuat oleh:<br></br><span className='font-normal'>Antri</span>.in</span>
                 </div>
             </div>
         </div>

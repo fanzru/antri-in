@@ -102,7 +102,7 @@ function JoinAntrian(props) {
           <form className="rounded px-8 pt-6 pb-8 mb-4">
             <label
               htmlFor="name"
-              className="block text-red-500 text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Nama
             </label>
@@ -125,9 +125,9 @@ function JoinAntrian(props) {
 
             <label
               htmlFor="nohp"
-              className="block text-red-500 text-sm font-bold mb-2 mt-4"
+              className="block text-black text-sm font-bold mb-2 mt-4"
             >
-              Nomor HP
+              Nomor Handphone
             </label>
 
             <div className="flex items-center justify-center w-full mt-1 mb-6">
@@ -136,7 +136,7 @@ function JoinAntrian(props) {
                   <BsTelephone />
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="p-2 h-10 focus:outline-none focus:border-indigo-500 placeholder-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-l-2 border-gray-300 bg-red-100"
                   id="nohp"
                   placeholder="081326161035"
@@ -145,57 +145,24 @@ function JoinAntrian(props) {
                 />
               </div>
             </div>
-
-            {/* <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-black text-sm font-bold mb-2"
-              >
-                Nama
-              </label>
-              <input
-                className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Masukan Nama Lengkap"
-                id="nama"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
-              />
-            </div> */}
-            {/* <div className="mb-6">
-              <label
-                htmlFor="nohp"
-                className="block text-black text-sm font-bold mb-4"
-              >
-                Nomor HP
-              </label>
-              <input
-                className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="number"
-                id="nohp"
-                placeholder="081326161035"
-                value={nomorHp}
-                onChange={(e) => setNomorHP(e.target.value)}
-              />
-            </div> */}
             {GagalText != "" && (
               <div className="bg-red-50 mt-2 p-3 rounded-lg mb-3">
                 <p className="text-center text-sm text-red-700 font-bold">
                   {GagalText}
                 </p>
                 <p className="text-center text-sm text-red-400">
-                  Returning to Homepage
+                  Kembali ke laman awal
                 </p>
               </div>
             )}
             <div className="flex items-center justify-between mt-2">
               {Success ? (
                 <p className="items-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
-                  Redirecting
+                  Mengalihkan
                 </p>
               ) : Loading ? (
                 <div className="flex items-center justify-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline gap-5">
-                  <p>Processing</p>
+                  <p>Memproses</p>
                   <ClipLoader size={20} color="white" />
                 </div>
               ) : Valid ? (
@@ -203,16 +170,13 @@ function JoinAntrian(props) {
                   onClick={onSubmit}
                   className=" items-center bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
                 >
-                  Join Antrian
+                  Masuk Antrian
                 </button>
               ) : (
                 <p className="items-center select-none bg-red-300 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
-                  Join Antrian
+                  Masuk Antrian
                 </p>
               )}
-              <a className="inline-block align-baseline font-reguler text-sm hover:text-red-400">
-                Bantuan
-              </a>
             </div>
           </form>
         </div>
