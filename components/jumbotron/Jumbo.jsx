@@ -57,6 +57,9 @@ export default function Jumbo() {
     const Antrian = ArrAntrian[nomor];
     let jumlahPengantri = Antrian["max_antrian"] - Antrian["curr_antrian"];
     let listAkhir = [];
+		if (jumlahPengantri > 3) {
+			jumlahPengantri = 3
+		}
     for (let i = 0; i < jumlahPengantri; i++) {
       let nomorAntrianAsli = Antrian["curr_antrian"] + 1;
       if (nomorAntrianAsli < 10) {
