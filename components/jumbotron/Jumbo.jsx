@@ -61,7 +61,7 @@ export default function Jumbo() {
 			jumlahPengantri = 3
 		}
     for (let i = 0; i < jumlahPengantri; i++) {
-      let nomorAntrianAsli = Antrian["curr_antrian"] + 1;
+      let nomorAntrianAsli = Antrian["curr_antrian"] + i + 1;
       if (nomorAntrianAsli < 10) {
         listAkhir.push({ Nomor: `00${nomorAntrianAsli}` });
       } else if (nomorAntrianAsli < 100) {
