@@ -65,9 +65,8 @@ function Navbar({goto="home"|"admin"}) {
   ];
   return (
     <>
-      <nav className="bg-red-100 fixed z-200">
-        <div className="w-screen px-7 mx-auto">
-          <div className="flex justify-between ">
+      <nav className="bg-red-100 fixed z-[200]">
+        <div className="w-screen px-7 mx-auto h-[51px] flex flex-row items-center justify-between flex-grow">
             <div className="flex">
               <button onClick={handleLogo} className="flex items-center">
                 <Image src="/antriin-logo.svg" className="m-2" height={35} width="100%" />
@@ -78,7 +77,7 @@ function Navbar({goto="home"|"admin"}) {
                 /> */}
               </button>
             </div>
-            <div className="w-1/6 justify-around hidden md:flex lg:flex lg:items-center">
+            <div className="w-[300px] justify-around hidden md:flex lg:flex lg:items-center">
               {menus.map((menu, index) => {
                 return (
                   <button key={index} className="flex items-center hover:font-semibold transition-all " onClick={ ()=>{router.push(menu.href)} }>
@@ -94,7 +93,6 @@ function Navbar({goto="home"|"admin"}) {
                   Keluar
                 </button>
                }
-
             </div>
             <div className="flex items-center md:hidden">
               <button
@@ -117,11 +115,12 @@ function Navbar({goto="home"|"admin"}) {
                 </svg>
               </button>
             </div>
-          </div>
+        </div>
           <AnimatePresence>
             {activeBar && (
+              <div className="px-7">
               <motion.div
-                className="mobile-menu"
+                className="flex flex-col justify-center items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -139,28 +138,25 @@ function Navbar({goto="home"|"admin"}) {
                   );
 
                 })}
-                <div className={"flex justify-center"}>
                   {!statusMasuk?
-                  <button className=" py-2 px-4 text-sm text-red-600 font-semibold text-center w-full rounded-md hover:bg-red-400 hover:text-white mb-2  "
+                  <button className="block text-red-600 font-semibold py-2 px-4 text-sm text-center container rounded-md hover:bg-red-400 hover:text-white"
                     onClick={()=>{router.push("/masuk")}}
                     >
                     {" "}
                     Masuk
                    </button> :
-                    <button className=" py-2 px-4 text-sm text-red-500 text-red-600 font-semibold text-center w-full rounded-md hover:bg-red-400 hover:text-white mb-2"
+                    <button className="block text-red-600 font-semibold py-2 px-4 text-sm text-center container rounded-md hover:bg-red-400 hover:text-white"
                         onClick={handleLogout}
                       >
                         {" "}
                         Keluar
                     </button>
                     }
-
-                </div>
-
+                    <span className="h-[0.5rem] w-full" />
               </motion.div>
+              </div>
             )}
           </AnimatePresence>
-        </div>
       </nav>
       <div className="h-[36px]"></div>
     </>
