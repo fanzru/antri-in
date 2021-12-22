@@ -74,48 +74,51 @@ function Adminpage() {
   }, [Search,]);
 
   return (
-      <div className="fixed w-screen h-screen">
-        <div className='md:grid md:grid-cols-2'>
-          <div className='mt-20 lg:mt-24 md:col-start-2 md:col-end-3'>
-            <div className='bg-gray-400 md:bg-transparent my-3 mx-5 md:mx-8 p-8 rounded-2xl md:rounded-none shadow-xl md:shadow-none'>
-              <div className='md:grid md:grid-cols-2 md:gap-2 mb-8'>
-                <div className="mb-3 md:mb-0 flex h-12 rounded-full shadow-lg">
-                  <input
-                    onChange={handleSearch}
-                    className="py-3 pl-4 focus:outline-none focus:border-red-300 block h-12 w-full rounded-l-full text-sm border-3 border-gray-300 bg-white"
-                    type="search"
-                    name="search"
-                    placeholder="Cari Antrian"
-                  ></input>
-                  <button
-                    type="submit"
-                    className="inline-flex items-center h-12 px-3 rounded-r-full bg-white text-gray-500 text-md">
-                    <MdOutlineSearch />
+    <div className="fixed w-screen h-screen">
+      <div className='md:grid md:grid-cols-2 flex flex-row items-end'>
+        <div className="hidden md:block">
+          <img className="" src="/ilus-antri01.svg"></img>
+        </div>
+        <div className='mt-20 lg:mt-24 md:col-start-2 md:col-end-3'>
+          <div className='bg-gray-400 md:bg-transparent my-3 mx-5 md:mx-8 p-8 rounded-2xl md:rounded-none shadow-xl md:shadow-none'>
+            <div className='md:grid md:grid-cols-2 md:gap-2 mb-8'>
+              <div className="mb-3 md:mb-0 flex h-12 rounded-full shadow-lg">
+                <input
+                  onChange={handleSearch}
+                  className="py-3 pl-4 focus:outline-none focus:border-red-300 block h-12 w-full rounded-l-full text-sm border-3 border-gray-300 bg-white"
+                  type="search"
+                  name="search"
+                  placeholder="Cari Antrian"
+                ></input>
+                <button
+                  type="submit"
+                  className="inline-flex items-center h-12 px-3 rounded-r-full bg-white text-gray-500 text-md">
+                  <MdOutlineSearch />
+                </button>
+              </div>
+              {(role == "super") &&
+                <div className='gap-2 flex justify-between'>
+                  <button onClick={() => { router.push("/admin/permintaan") }} className='bg-red-50 rounded-xl h-12 md:h-full w-1/3 border-2 border-red-300 text-red-600 text-base font-semibold text-center shadow-lg inline-flex items-center justify-center'>
+                    <div className='mr-1'>
+                      <MdPersonAddAlt1 />
+                    </div>
+                    <span>{jumlahRequestAdmin}</span>
+                  </button>
+                  <button onClick={() => { router.push("/admin/antrian/tambah") }} className='bg-red-50 rounded-xl h-12 md:h-full w-full border-2 border-red-300 text-red-600 font-semibold text-center shadow-lg text-sm'>
+                    Buat Antrian Baru
                   </button>
                 </div>
-                {(role == "super") &&
-                  <div className='gap-2 flex justify-between'>
-                    <button onClick={() => { router.push("/admin/permintaan") }} className='bg-red-50 rounded-xl h-12 md:h-full w-1/3 border-2 border-red-300 text-red-600 text-base font-semibold text-center shadow-lg inline-flex items-center justify-center'>
-                      <div className='mr-1'>
-                        <MdPersonAddAlt1 />
-                      </div>
-                      <span>{jumlahRequestAdmin}</span>
-                    </button>
-                    <button onClick={() => { router.push("/admin/antrian/tambah") }} className='bg-red-50 rounded-xl h-12 md:h-full w-full border-2 border-red-300 text-red-600 font-semibold text-center shadow-lg text-sm'>
-                      Buat Antrian Baru
-                    </button>
-                  </div>
-                }
-              </div>
-              <div className=' overflow-y-scroll h-96 md:h-72 p-1'>
-                {dataAntrian.map((data, idx) => {
-                  return <ListAntrianAdmin key={idx} data={data} />;
-                })}
-              </div>
+              }
+            </div>
+            <div className=' overflow-y-scroll h-96 md:h-72 p-1'>
+              {dataAntrian.map((data, idx) => {
+                return <ListAntrianAdmin key={idx} data={data} />;
+              })}
             </div>
           </div>
         </div>
       </div>
+    </div>
   )
 }
 
